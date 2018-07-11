@@ -31,7 +31,7 @@ public class HomeView implements View {
         if (choice < 1 || choice > 3)
             MainDispatcher.getInstance().callAction("Home", "doControl", null);
         else if (choice == 3)
-            MainDispatcher.getInstance().callAction("Login", "doControl", null);
+            MainDispatcher.getInstance().callAction("Index", "doControl", null);
         else {
             Request request = new Request();
             request.put("choice", choice);
