@@ -5,6 +5,7 @@ import java.util.Scanner;
 import main.MainDispatcher;
 import main.controller.RegisterController;
 import main.controller.Request;
+import main.model.Utente;
 
 public class RegisterView implements View {
 
@@ -16,16 +17,22 @@ public class RegisterView implements View {
 	private String sesso;
 	private String username;
 	private String password;
-	//private String avatar;
+	private String avatar;
 	private String ruolo;
 	private String genere;
 	private String telefono;
 	
-	private RegisterController registerController;
+	private Utente nuovoUtente;
+
 
 	@Override
 	public void showResults(Request request) {
-		// TODO Auto-generated method stub
+		if((request!=null)) {
+    		String messaggio=(String) request.get("messaggio");
+    		if(messaggio!=null) {
+    		System.out.println(messaggio);
+    		}
+    	}
 
 	}
 
@@ -57,24 +64,15 @@ public class RegisterView implements View {
 		System.out.println("Genere (Inserisci Rock, Pop o Rap):");
 		genere = getInput();
 		
-		this.registerController=new RegisterController();
-		registerController.register(nome, cognome, email,dataNascita, luogoNascita, sesso, telefono, username, password, ruolo , genere);
+		this.nuovoUtente=new Utente(0,  nome,  cognome,  email,  luogoNascita,  dataNascita,  sesso,  genere,  0,  1,  telefono,  password,  username,  ruolo,  false,  avatar);
 		
 	}
 
     public void submit() {
         Request request = new Request();
-        request.put("nome", nome);
-        request.put("cognome", cognome);
-        request.put("email", email);
-        request.put("dataNascita", dataNascita);
-        request.put("luogoNascita", luogoNascita);
-        request.put("sesso", sesso);
-        request.put("telefono", telefono);
-        request.put("username", username);
-        request.put("password", password);
-        request.put("ruolo", ruolo);
-        request.put("genere", genere);
+        
+        request.put("utente", nuovoUtente);
+       
         MainDispatcher.getInstance().callAction("Register", "doControl", request);
     }
 

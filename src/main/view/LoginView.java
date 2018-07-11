@@ -11,7 +11,12 @@ public class LoginView implements View {
     private String password;
 
     public void showResults (Request request) {
-
+    	if((request!=null)) {
+    		String messaggio=(String) request.get("messaggio");
+    		if(messaggio!=null) {
+    		System.out.println(messaggio);
+    		}
+    	}
     }
 
 

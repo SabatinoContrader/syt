@@ -8,18 +8,18 @@ public class Utente {
 		private String email;
 		private String luogoNascita;
 		private String dataNascita;
-		private char sesso;
+		private String sesso;
 		private String genere;
 		private int tentativi;
 		private int livello;
 		private String telefono;
 		private String password;
 		private String username;
-		private char ruolo;
+		private String ruolo;
 		private boolean cantanteToGiudice;
 		private String avatar;
 		
-		public Utente(int idUtente, String nome, String cognome, String email, String luogoNascita, String dataNascita, char sesso, String genere, int tentativi, int livello, String telefono, String password, String username, char ruolo, boolean cantanteToGiudice, String avatar) {
+		public Utente(int idUtente, String nome, String cognome, String email, String luogoNascita, String dataNascita, String sesso, String genere, int tentativi, int livello, String telefono, String password, String username, String ruolo, boolean cantanteToGiudice, String avatar) {
 			
 			this.idUtente =  idUtente;
 			this.nome =  nome;
@@ -88,11 +88,11 @@ public class Utente {
 			this.dataNascita = dataNascita;
 		}
 
-		public char getSesso() {
+		public String getSesso() {
 			return sesso;
 		}
 
-		public void setSesso(char sesso) {
+		public void setSesso(String sesso) {
 			this.sesso = sesso;
 		}
 
@@ -144,11 +144,11 @@ public class Utente {
 			this.username = username;
 		}
 
-		public char getRuolo() {
+		public String getRuolo() {
 			return ruolo;
 		}
 
-		public void setRuolo(char ruolo) {
+		public void setRuolo(String ruolo) {
 			this.ruolo = ruolo;
 		}
 
