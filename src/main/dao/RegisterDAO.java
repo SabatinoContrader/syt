@@ -6,6 +6,7 @@ import main.model.Utente;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class RegisterDAO {
@@ -14,9 +15,10 @@ public class RegisterDAO {
 
     public boolean register (Utente utente) {
         Connection connection = ConnectionSingleton.getInstance();
+        boolean b=false;
         try {
-            PreparedStatement statement = connection.prepareStatement(QUERY_REGISTER);
-            statement.setString(1, utente.getNome());
+        	PreparedStatement statement = connection.prepareStatement(QUERY_REGISTER);
+        	statement.setString(1, utente.getNome());
             statement.setString(2, utente.getCognome());
             statement.setString(3, utente.getEmail());
             statement.setString(4, utente.getdataNascita());
@@ -30,12 +32,18 @@ public class RegisterDAO {
             statement.setInt(12, utente.getTentativi());
             statement.setString(13, utente.getUsername());
             statement.setString(14, utente.getPassword());
-            return statement.execute();
+            
+            if(statement.executeUpdate()>0) {
+            	 System.out.println(statement.executeUpdate());
+            	b=true;
+            }
+            return b;
         }
         catch (SQLException e) {
             GestoreEccezioni.getInstance().gestisciEccezione(e);
-            return false;
+            return b;
         }
+		
     }
 }
 

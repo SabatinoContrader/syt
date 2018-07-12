@@ -14,9 +14,11 @@ public class RegisterController implements Controller {
 		//if la risposta is positiva +messaggio successo
 		
 		 boolean risultato=registerService.register((Utente)request.get("utente"));
+		 
 		 String messaggio="";
 		 Request req=new Request();
-		 if(!risultato) {
+		 
+		 if(risultato) {
 			 messaggio="Registrazione effettuata con successo; ora effettua il login.";
 			 req.put("messaggio", messaggio);
 			    MainDispatcher.getInstance().callView("Login", req);
