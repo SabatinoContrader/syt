@@ -2,27 +2,42 @@ package main.dao;
 
 import main.ConnectionSingleton;
 import main.controller.GestoreEccezioni;
+import main.model.Utente;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class LoginDAO {
 
     private final String QUERY_LOGIN = "select * from utente where username = ? and password = ?";
-
-    public boolean login (String username, String password) {
+    
+    
+    
+    public Utente login (String username, String password) {
 
         Connection connection = ConnectionSingleton.getInstance();
+        ResultSet resultSet=null;
         try {
+        	
             PreparedStatement statement = connection.prepareStatement(QUERY_LOGIN);
             statement.setString(1, username);
             statement.setString(2, password);
-            return statement.executeQuery().next();
+            resultSet= statement.executeQuery();
+            
+            Utente utente = null;
+            
+            if (resultSet.next()) {
+            	utente = new Utente (resultSet.getInt("id_utente"), resultSet.getString("nome"), resultSet.getString("cognome"), resultSet.getString("email"), resultSet.getString("luogo_nascita"), resultSet.getString("data_nascita"), resultSet.getString("sesso"), resultSet.getString("genere"), resultSet.getInt("tentativi"), resultSet.getInt("livello"), resultSet.getString("telefono"), resultSet.getString("password"), resultSet.getString("username"), resultSet.getString("ruolo"), resultSet.getBoolean("cantante_to_giudice"), resultSet.getString("avatar"));            	
+            	
+            }
+            
+            return utente;
         }
         catch (SQLException e) {
             GestoreEccezioni.getInstance().gestisciEccezione(e);
-            return false;
+            return null;
         }
     }
 }
