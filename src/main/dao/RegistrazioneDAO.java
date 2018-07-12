@@ -25,9 +25,9 @@ public class RegistrazioneDAO {
            Statement statement = connection.createStatement();
            ResultSet resultSet = statement.executeQuery(QUERY_ALL);
            while (resultSet.next()) {
-               int idRegistrazione = resultSet.getInt("id_registrazione");
-               String registrazione = resultSet.getString("registrazione");
+        	   int idRegistrazione = resultSet.getInt("id_registrazione");
                int idUtente = resultSet.getInt("id_utente");
+               String registrazione = resultSet.getString("registrazione");
                String dataCreazione = resultSet.getString("data_creazione");
                int idCanzone = resultSet.getInt("id_canzone");
                registrazioni.add(new Registrazione(idRegistrazione, registrazione, idUtente, idCanzone, dataCreazione));
