@@ -1,9 +1,12 @@
 package main.view;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import main.MainDispatcher;
 import main.controller.Request;
+import main.model.Utente;
 
 public class RicercaCantanteView implements View {
 
@@ -11,15 +14,18 @@ public class RicercaCantanteView implements View {
 	
 	@Override
 	public void showResults(Request request) {
-		
 		// TODO Auto-generated method stub
-		
+		List <Utente> listaCantanti=new ArrayList<Utente>();
+		listaCantanti=(List<Utente>) request.get("listaCantanti");
+		for(Utente u: listaCantanti) {
+			System.out.println(u.toString());
+		}
 	}
 
 	@Override
 	public void showOptions() {
 		// TODO Auto-generated method stub
-		System.out.println("INSERISCI LO USERNAME DEL CANTANTE:");
+		System.out.println("Inserisci lo username del cantante:");
 		this.choice = getInput();
 	}
 
@@ -41,5 +47,5 @@ public class RicercaCantanteView implements View {
 		// TODO Auto-generated method stub
 	}
 	
-
+	
 }
