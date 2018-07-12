@@ -13,8 +13,8 @@ public class GiudiceController implements Controller {
 	}
 
 	public void doControl(Request request) {
-		if(Integer.parseInt(request.get("choice").toString())==1)
-			MainDispatcher.getInstance().callView("RicercaCantante", request);
+		if(Integer.parseInt(request.get("choice").toString())==1) {}
+			MainDispatcher.getInstance().callView("RicercaCantante", null);
 	
 
 	}

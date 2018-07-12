@@ -28,17 +28,17 @@ public class RicercaCantanteView implements View {
 		// TODO Auto-generated method stub
 		  Scanner scanner = new Scanner(System.in);
 	        return scanner.nextLine();
+	   
 	}
 
 	@Override
 	public void submit() {
-		 Request request = new Request();
+		Request request = new Request();
 	        
 	        request.put("username", choice);
 	       
 	        MainDispatcher.getInstance().callAction("Giudice", "doControl", request);
 		// TODO Auto-generated method stub
-		
 	}
 	
 
