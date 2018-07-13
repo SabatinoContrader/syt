@@ -17,14 +17,13 @@ public class HomeController implements Controller {
             String nomeUtente = request.get("nomeUtente").toString();
             String password = request.get("password").toString();
             Utente u=loginService.login(nomeUtente, password);
-            if ( u!= null) {
+            if (u!= null) {
             	if(u.getRuolo().toString().compareTo("G")==0) {
             		
             		MainDispatcher.getInstance().callView("HomeGiudice", null);
             	}
             	else {
-            		MainDispatcher.getInstance().callView("HomeCantante", null);//da completare con la request dopo che vengono implementte le funzioni del cantante
-
+            		MainDispatcher.getInstance().callView("HomeCantante", null);
             	}
             }
                 

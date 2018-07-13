@@ -14,7 +14,7 @@ public class RegistrazioneController implements Controller {
 	    public void doControl(Request request) {
 	    	this.registrazioneService = new RegistrazioneService();
 
-	            	List<Registrazione> registrazioni = registrazioneService.getAllRegistrazioni();
+	            	List<Registrazione> registrazioni = registrazioneService.getAllRegistrazioni(request.get("username").toString());
 	            	request.put("listaRegistrazione", registrazioni);
 	        MainDispatcher.getInstance().callView("Registrazione", request);
 

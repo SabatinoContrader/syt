@@ -20,10 +20,9 @@ public class GiudiceController implements Controller {
 	public void doControl(Request request) {
 		String operazione = request.get("operazione").toString();
 		if (operazione.equals("ricerca")) {
-			//if (Integer.parseInt(request.get("choice").toString()) == 1) {
-				MainDispatcher.getInstance().callView("RicercaCantante", null);
-			//}
-		}else if(operazione.equals("preleva")){
+			MainDispatcher.getInstance().callView("RicercaCantante", null);
+		}else 
+			if(operazione.equals("preleva")){
 			List<Utente> cantanti = new ArrayList<Utente>();
 			cantanti = giudiceService.getCantanti(request.get("username").toString());
 			request.put("listaCantanti", cantanti);

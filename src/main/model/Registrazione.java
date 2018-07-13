@@ -1,6 +1,7 @@
 package main.model;
 
 public class Registrazione {
+
 private int idRegistrazione;
 private String registrazione;
 private int idUtente;
@@ -68,6 +69,10 @@ public void setDataCreazione(String dataCreazione) {
 }
 
 
+@Override
+public String toString() {
+	return "[ID Registrazione = " + idRegistrazione + ", Titolo canzone = " + registrazione + ", Data Creazione = " + dataCreazione + "]";
+}
 
 
 }

@@ -59,6 +59,7 @@ public class RicercaCantanteView implements View {
 	        MainDispatcher.getInstance().callAction("Giudice", "doControl", request);
 		} else {
 			request.put("choice", choice);
+			MainDispatcher.getInstance().callAction("RegistrazioniUtente", "doControl", request);
 		}
 	        
 	      

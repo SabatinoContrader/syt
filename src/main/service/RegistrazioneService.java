@@ -13,7 +13,7 @@ public class RegistrazioneService {
         this.registrazioneDAO = new RegistrazioneDAO();
     }
 
-    public List<Registrazione> getAllRegistrazioni () {
-        return this.registrazioneDAO.getAllRegistrazioni ();
+    public List<Registrazione> getAllRegistrazioni (String user) {
+        return this.registrazioneDAO.getAllRegistrazioni (user);
     }
 }
