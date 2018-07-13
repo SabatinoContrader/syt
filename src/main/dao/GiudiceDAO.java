@@ -12,7 +12,7 @@ import main.model.Utente;
 
 public class GiudiceDAO {
 	
-    private final String QUERY_SEARCH = "SELECT * FROM utente WHERE username LIKE '%?%' AND ruolo='C'";
+    private final String QUERY_SEARCH = "SELECT * FROM utente WHERE username LIKE ? AND ruolo='C'";
 
 
     public List<Utente> getAllCantanti (String substr) {
@@ -21,7 +21,7 @@ public class GiudiceDAO {
         ResultSet resultSet=null;
         try {     
             PreparedStatement statement = connection.prepareStatement(QUERY_SEARCH);
-            statement.setString(1, substr);
+            statement.setString(1, "%" + substr + "%");
             
             resultSet= statement.executeQuery();
             

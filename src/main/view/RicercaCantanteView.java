@@ -10,23 +10,35 @@ import main.model.Utente;
 
 public class RicercaCantanteView implements View {
 
+	private String username;
+	private boolean b=false;
 	private String choice;
-	
 	@Override
 	public void showResults(Request request) {
 		// TODO Auto-generated method stub
-		List <Utente> listaCantanti=new ArrayList<Utente>();
-		listaCantanti=(List<Utente>) request.get("listaCantanti");
-		for(Utente u: listaCantanti) {
-			System.out.println(u.toString());
+		if(request!=null) {
+			List <Utente> listaCantanti=new ArrayList<Utente>();
+			listaCantanti=(List<Utente>) request.get("listaCantanti");
+			for(Utente u: listaCantanti) {
+				System.out.println(u.toString());
+			}
+			this.b=true;
 		}
 	}
 
 	@Override
 	public void showOptions() {
+		if(!b) {
 		// TODO Auto-generated method stub
 		System.out.println("Inserisci lo username del cantante:");
-		this.choice = getInput();
+		this.username = getInput();
+		}
+		else {
+			System.out.println("\n1) Vota un cantante");
+			System.out.println("2) Ripeti la ricerca");
+			System.out.println("3) Torna al menu' principale");
+			this.choice = getInput();
+		}
 	}
 
 	@Override
@@ -41,9 +53,15 @@ public class RicercaCantanteView implements View {
 	public void submit() {
 		Request request = new Request();
 	        
-	        request.put("username", choice);
-	       
+		if (!b) {
+	        request.put("username", username);
+	        request.put("operazione", "preleva");
 	        MainDispatcher.getInstance().callAction("Giudice", "doControl", request);
+		} else {
+			request.put("choice", choice);
+		}
+	        
+	      
 		// TODO Auto-generated method stub
 	}
 	

@@ -18,17 +18,17 @@ public class GiudiceController implements Controller {
 	}
 
 	public void doControl(Request request) {
-		if(Integer.parseInt(request.get("choice").toString())==1) {}
-			MainDispatcher.getInstance().callView("RicercaCantante", null);
-	
+		String operazione = request.get("operazione").toString();
+		if (operazione.equals("ricerca")) {
+			//if (Integer.parseInt(request.get("choice").toString()) == 1) {
+				MainDispatcher.getInstance().callView("RicercaCantante", null);
+			//}
+		}else if(operazione.equals("preleva")){
+			List<Utente> cantanti = new ArrayList<Utente>();
+			cantanti = giudiceService.getCantanti(request.get("username").toString());
+			request.put("listaCantanti", cantanti);
+			MainDispatcher.getInstance().callView("RicercaCantante", request);
+		}
+	}
 
-	}
-	public void applicaRicerca(Request request) {
-		List<Utente> cantanti =new ArrayList<Utente>(); 
-		cantanti=giudiceService.getCantanti(request.get("substring").toString());
-		
-    	request.put("listaCantanti", cantanti);
-    	MainDispatcher.getInstance().callView("RicercaCantante", request);
-	}
-	
 }

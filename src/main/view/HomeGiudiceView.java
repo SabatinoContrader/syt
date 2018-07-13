@@ -27,7 +27,8 @@ public class HomeGiudiceView implements View {
 			switch (choice) {
 			case 1:
 				Request request = new Request();
-	            request.put("choice", choice);
+	            //request.put("choice", choice);
+	            request.put("operazione", "ricerca");
 				MainDispatcher.getInstance().callAction("Giudice", "doControl", request);// da modificare
 				
 			case 2:

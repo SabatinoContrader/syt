@@ -167,6 +167,10 @@ public class Utente {
 		public void setAvatar(String avatar) {
 			this.avatar = avatar;
 		}
-		
 
+		@Override
+		public String toString() {
+			return "[ID = " + idUtente + ", Nome = " + nome + ", Cognome = " + cognome + ", Email = " + email
+					+ ", Username = " + username + "]";
+		}
 }
