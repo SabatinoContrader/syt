@@ -1,0 +1,52 @@
+package com.virtualpairprogrammers.dao;
+
+
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import com.virtualpairprogrammers.model.Utente;
+import com.virtualpairprogrammers.utils.ConnectionSingleton;
+import com.virtualpairprogrammers.utils.GestoreEccezioni;
+
+public class RegisterDAO {
+
+    private final String QUERY_REGISTER = "INSERT INTO `sytdb`.`utente` (`nome`, `cognome`, `email`, `data_nascita`, `luogo_nascita`, `sesso`, `genere`, `livello`, `telefono`, `ruolo`, `cantante_to_giudice`, `tentativi`, `username`, `password`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+    public boolean register (Utente utente) {
+        Connection connection = ConnectionSingleton.getInstance();
+        boolean b=false;
+        try {
+        	PreparedStatement statement = connection.prepareStatement(QUERY_REGISTER);
+        	statement.setString(1, utente.getNome());
+            statement.setString(2, utente.getCognome());
+            statement.setString(3, utente.getEmail());
+            statement.setString(4, utente.getdataNascita());
+            statement.setString(5, utente.getluogoNascita());
+            statement.setString(6, utente.getSesso());
+            statement.setString(7, utente.getGenere());
+            statement.setInt(8, utente.getLivello());
+            statement.setString(9, utente.getTelefono());
+            statement.setString(10, utente.getRuolo());
+            statement.setBoolean(11, utente.iscantanteToGiudice());
+            statement.setInt(12, utente.getTentativi());
+            statement.setString(13, utente.getUsername());
+            statement.setString(14, utente.getPassword());
+            
+            if(statement.executeUpdate()>0) {
+            	 System.out.println(statement.executeUpdate());
+            	b=true;
+            }
+            return b;
+        }
+        catch (SQLException e) {
+            GestoreEccezioni.getInstance().gestisciEccezione(e);
+            return b;
+        }
+		
+    }
+}
+
+
