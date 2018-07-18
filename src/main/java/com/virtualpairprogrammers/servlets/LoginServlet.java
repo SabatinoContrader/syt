@@ -33,7 +33,7 @@ public class LoginServlet extends HttpServlet {
         }
         else
             
-            getServletContext().getRequestDispatcher("/index.jsp").forward(request,response);
+            getServletContext().getRequestDispatcher("/indexerr.jsp").forward(request,response);
     }
     
 }

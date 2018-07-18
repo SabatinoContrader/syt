@@ -10,10 +10,10 @@
 <body>
 <h1>Benvenuto <%= utente.getUsername()%></h1>
 Seleziona:
-<select name="choice">
-<option>--Seleziona la tua scelta--</option>
-<option>Ricerca cantante</option>
-<option>Visualizza classifica</option>
-<option>Logout</option>
+<ul>
+  <li><a href="RicercaCantante.jsp">Ricerca cantante</a></li>
+  <li><a href="VisualizzaClassifica.jsp">Visualizza classifica</a></li>
+  <li><a href="logout.jsp">Logout</a></li>
+</ul> 
 </body>
 </html>
