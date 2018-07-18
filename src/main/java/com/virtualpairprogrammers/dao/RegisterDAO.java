@@ -11,6 +11,7 @@ import com.virtualpairprogrammers.model.Utente;
 import com.virtualpairprogrammers.utils.ConnectionSingleton;
 import com.virtualpairprogrammers.utils.GestoreEccezioni;
 
+
 public class RegisterDAO {
 
     private final String QUERY_REGISTER = "INSERT INTO `sytdb`.`utente` (`nome`, `cognome`, `email`, `data_nascita`, `luogo_nascita`, `sesso`, `genere`, `livello`, `telefono`, `ruolo`, `cantante_to_giudice`, `tentativi`, `username`, `password`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -36,7 +37,6 @@ public class RegisterDAO {
             statement.setString(14, utente.getPassword());
             
             if(statement.executeUpdate()>0) {
-            	 System.out.println(statement.executeUpdate());
             	b=true;
             }
             return b;

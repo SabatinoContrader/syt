@@ -10,6 +10,13 @@
 		<servlet-name>LoginServlet</servlet-name>
 		<servlet-class>com.virtualpairprogrammers.servlets.LoginServlet</servlet-class>
 	</servlet>
+<<<<<<< HEAD
+=======
+	<servlet>
+		<servlet-name>RegisterServlet</servlet-name>
+		<servlet-class>com.virtualpairprogrammers.servlets.RegisterServlet</servlet-class>
+	</servlet>
+>>>>>>> 24a49f1ca08c336dcceb8b629074efdb97b5948d
 
 	<servlet>
 		<servlet-name>RicercaCantanteServlet</servlet-name>
@@ -21,10 +28,16 @@
 		<url-pattern>/LoginServlet</url-pattern>
 	</servlet-mapping>
 	
+<<<<<<< HEAD
 	
 	<servlet-mapping>
 		<servlet-name>RicercaCantanteServlet</servlet-name>
 		<url-pattern>/RicercaCantanteServlet</url-pattern>
+=======
+	<servlet-mapping>
+		<servlet-name>RegisterServlet</servlet-name>
+		<url-pattern>/RegisterServlet</url-pattern>
+>>>>>>> 24a49f1ca08c336dcceb8b629074efdb97b5948d
 	</servlet-mapping>
 
 	<session-config>
