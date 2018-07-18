@@ -12,6 +12,11 @@ public class LoginService {
     }
 
     public Utente login (String username, String password) {
-        return loginDAO.login(username, password);
+        Utente utente = loginDAO.login(username,password);
+		return utente;
+       
+
     }
+
+
 }
