@@ -1,13 +1,15 @@
 <html>
 <head>
-<title>Benvenuto in Sing Your Talent!</title>
+<title>SYT Login</title>
 </head>
 <html>
 <body>
+<h1>LOGIN</h1>
+	<h2>Inserisci le tue credenziali SYT</h2>
    <div>
-     <form action = "LoginTraderServlet" method= "post">
-     <h3>username: <input type = "text" id = "user" name ="username" placeholder = "inserisci username"></h3>
-     <h3>password: <input type = "text" id = "pass" name ="password" placeholder = "inserisci password"></h3>
+     <form action = "LoginServlet" method= "post">
+     <h3>Username: <input type = "text" id = "user" name ="username" placeholder = "inserisci username"></h3>
+     <h3>Password: <input type = "text" id = "pass" name ="password" placeholder = "inserisci password"></h3>
      <button type = "submit" value = "Login" name = "pulsante">Login In</button><br>
      <a href="register.jsp"> Registrati </a>
      </form>
