@@ -10,7 +10,10 @@
 		<servlet-name>LoginServlet</servlet-name>
 		<servlet-class>com.virtualpairprogrammers.servlets.LoginServlet</servlet-class>
 	</servlet>
-	
+	<servlet>
+		<servlet-name>RegisterServlet</servlet-name>
+		<servlet-class>com.virtualpairprogrammers.servlets.RegisterServlet</servlet-class>
+	</servlet>
 
 
 	<servlet-mapping>
@@ -18,6 +21,10 @@
 		<url-pattern>/LoginServlet</url-pattern>
 	</servlet-mapping>
 	
+	<servlet-mapping>
+		<servlet-name>RegisterServlet</servlet-name>
+		<url-pattern>/RegisterServlet</url-pattern>
+	</servlet-mapping>
 
 	<session-config>
 		<session-timeout>4000</session-timeout>

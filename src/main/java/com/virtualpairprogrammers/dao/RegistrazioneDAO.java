@@ -12,6 +12,7 @@ import java.util.List;
 import com.virtualpairprogrammers.model.Registrazione;
 import com.virtualpairprogrammers.utils.ConnectionSingleton;
 
+
 public class RegistrazioneDAO {
 
     private final String QUERY_ALL = "SELECT registrazione.* FROM registrazione, utente WHERE registrazione.id_utente=utente.id_utente AND utente.username=?";
