@@ -9,7 +9,7 @@
    <div>
      <form action = "LoginServlet" method= "post">
      <h3>Username: <input type = "text" id = "user" name ="username" placeholder = "inserisci username"></h3>
-     <h3>Password: <input type = "text" id = "pass" name ="password" placeholder = "inserisci password"></h3>
+     <h3>Password: <input type = "password" id = "pass" name ="password" placeholder = "inserisci password"></h3>
      <button type = "submit" value = "Login" name = "pulsante">Login In</button><br>
      <a href="register.jsp"> Registrati </a>
      </form>
