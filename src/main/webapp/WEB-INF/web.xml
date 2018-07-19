@@ -16,15 +16,20 @@
 		<servlet-class>com.virtualpairprogrammers.servlets.VotaServlet</servlet-class>
 	</servlet>
 	
+
 	<servlet>
 		<servlet-name>RegisterServlet</servlet-name>
 		<servlet-class>com.virtualpairprogrammers.servlets.RegisterServlet</servlet-class>
 	</servlet>
 
-
 	<servlet>
 		<servlet-name>RicercaCantanteServlet</servlet-name>
 		<servlet-class>com.virtualpairprogrammers.servlets.RicercaCantanteServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>CanzoneServlet</servlet-name>
+		<servlet-class>com.virtualpairprogrammers.servlets.CanzoneServlet</servlet-class>
 	</servlet>
 
 	<servlet>
@@ -42,16 +47,20 @@
 		<url-pattern>/LoginServlet</url-pattern>
 	</servlet-mapping>
 	
-	
 	<servlet-mapping>
 		<servlet-name>RicercaCantanteServlet</servlet-name>
 		<url-pattern>/RicercaCantanteServlet</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet-mapping>
 		<servlet-name>RegisterServlet</servlet-name>
 		<url-pattern>/RegisterServlet</url-pattern>
+	</servlet-mapping>
 
+
+	<servlet-mapping>
+		<servlet-name>CanzoneServlet</servlet-name>
+		<url-pattern>/CanzoneServlet</url-pattern>
 	</servlet-mapping>
 
 	
