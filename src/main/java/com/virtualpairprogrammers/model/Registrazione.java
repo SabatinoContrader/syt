@@ -3,16 +3,14 @@ package com.virtualpairprogrammers.model;
 public class Registrazione {
 
 private int idRegistrazione;
-private String registrazione;
 private int idUtente;
 private int idCanzone;
 private String dataCreazione;
 
 
-public Registrazione(int idRegistrazione, String registrazione, int idUtente, int idCanzone, String dataCreazione) {
-	
+public Registrazione(int idRegistrazione, int idUtente, int idCanzone, String dataCreazione) {
+	super();
 	this.idRegistrazione = idRegistrazione;
-	this.registrazione = registrazione;
 	this.idUtente = idUtente;
 	this.idCanzone = idCanzone;
 	this.dataCreazione = dataCreazione;
@@ -26,16 +24,6 @@ public int getIdRegistrazione() {
 
 public void setIdRegistrazione(int idRegistrazione) {
 	this.idRegistrazione = idRegistrazione;
-}
-
-
-public String getRegistrazione() {
-	return registrazione;
-}
-
-
-public void setRegistrazione(String registrazione) {
-	this.registrazione = registrazione;
 }
 
 
@@ -71,7 +59,7 @@ public void setDataCreazione(String dataCreazione) {
 
 @Override
 public String toString() {
-	return "[ID Registrazione = " + idRegistrazione + ", Titolo canzone = " + registrazione + ", Data Creazione = " + dataCreazione + "]";
+	return "[ID Registrazione = " + idRegistrazione + ", Data Creazione = " + dataCreazione + "]";
 }
 
 
