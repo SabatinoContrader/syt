@@ -1,6 +1,7 @@
 package com.virtualpairprogrammers.servlets;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -34,9 +35,15 @@ this.registerService=new RegisterService();
         String genere = request.getParameter("genere").toString();
         String avatar = request.getParameter("avatar").toString();
         Utente u=new Utente(0,nome,  cognome,  email,  luogoNascita,  dataNascita,  sesso,  genere,  0,  1,  telefono,  password,  username,  ruolo,  false,  avatar);
-        if (registerService.register(u))
+        if (registerService.register(u)) {
         	//inserisci messaggio di registrazione effettuata con successo
-            response.sendRedirect("index.jsp");
+//        	PrintWriter out = response.getWriter();
+//			response.setContentType("text/html");
+//			out.println ("<p>Hello World!</p>");
+//			
+        	response.sendRedirect("index.jsp");
+        	
+        }
         else
         	//messaggio di registrazione fallita, ritenta.
             response.sendRedirect("register.jsp");
