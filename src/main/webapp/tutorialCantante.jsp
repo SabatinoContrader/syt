@@ -18,8 +18,8 @@
 	<h1>1. Seleziona una canzone.</h1>
 	<h2>Seleziona una canzone tra quelle disponibili per il tuo livello.</h2>
 	
-	<form action = "CanzoneServlet" method= "post">
-	<select name="listacanzoni">
+	<form action = "TaraturaMicrofonoServlet" method= "post">
+	<select name="canzonescelta">
 	<%
 	for(Canzone c: listaCanzoni){	
 	%>

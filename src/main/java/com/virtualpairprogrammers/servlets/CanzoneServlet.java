@@ -23,12 +23,9 @@ public void service(HttpServletRequest request, HttpServletResponse response) th
    
     
     if(u!=null) {
-    	 System.out.println(u.getCognome());
     	List<Canzone> listaCanzoni=new LinkedList<Canzone>();
     	
-    	System.out.println();
     	listaCanzoni.addAll(canzoneService.getCanzoni(u));
-    	System.out.println(listaCanzoni.get(0));
     	request.setAttribute("listacanzoni", listaCanzoni);
     }
 

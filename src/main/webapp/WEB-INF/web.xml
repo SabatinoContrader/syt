@@ -26,6 +26,11 @@
 		<servlet-class>com.virtualpairprogrammers.servlets.CanzoneServlet</servlet-class>
 	</servlet>
 
+	<servlet>
+		<servlet-name>TaraturaMicrofonoServlet</servlet-name>
+		<servlet-class>com.virtualpairprogrammers.servlets.TaraturaMicrofonoServlet</servlet-class>
+	</servlet>
+
 <servlet-mapping>
 		<servlet-name>LoginServlet</servlet-name>
 		<url-pattern>/LoginServlet</url-pattern>
@@ -46,6 +51,11 @@
 	<servlet-mapping>
 		<servlet-name>CanzoneServlet</servlet-name>
 		<url-pattern>/CanzoneServlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>TaraturaMicrofonoServlet</servlet-name>
+		<url-pattern>/TaraturaMicrofonoServlet</url-pattern>
 	</servlet-mapping>
 
 	<session-config>

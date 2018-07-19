@@ -15,7 +15,7 @@ import com.virtualpairprogrammers.utils.GestoreEccezioni;
 public class CanzoneDAO {
 
 	private final String QUERY_GET_CANZONI = "select * from canzone where livello = ? and genere = ?";
-	
+	private final String QUERY_GET_CANZONE="select * from canzone where id_canzone=?";
 	
 	public List<Canzone> getCanzoni(Utente u) {
 		 Connection connection = ConnectionSingleton.getInstance();
@@ -24,9 +24,7 @@ public class CanzoneDAO {
 	        	
 	            PreparedStatement statement = connection.prepareStatement(QUERY_GET_CANZONI);
 	            statement.setInt(1, u.getLivello());
-	            System.out.println(u.getLivello());
 	            statement.setString(2, u.getGenere());
-	            System.out.println(u.getGenere());
 	            resultSet= statement.executeQuery();
 	            
 	            List<Canzone> canzoni = new ArrayList<Canzone>();
@@ -42,6 +40,30 @@ public class CanzoneDAO {
 	            GestoreEccezioni.getInstance().gestisciEccezione(e);
 	            return null;
 	        }
+	}
+
+
+	public Canzone getCanzone(int id) {
+		Connection connection = ConnectionSingleton.getInstance();
+        ResultSet resultSet=null;
+        try {
+        	
+            PreparedStatement statement = connection.prepareStatement(QUERY_GET_CANZONE);
+            statement.setInt(1, id);
+            resultSet= statement.executeQuery();
+            
+            Canzone canzone = null;
+            
+           if (resultSet.next()) {
+        	   canzone = new Canzone (resultSet.getInt("id_canzone"), resultSet.getInt("livello"), resultSet.getString("genere"), resultSet.getString("url_canzone"), resultSet.getString("titolo"));            	
+            }
+            
+            return canzone;
+        }
+        catch (SQLException e) {
+            GestoreEccezioni.getInstance().gestisciEccezione(e);
+            return null;
+        }
 	}
 
 }

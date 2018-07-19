@@ -17,4 +17,7 @@ public class CanzoneService {
 	public List<Canzone> getCanzoni(Utente u) {
 		return canzoneDAO.getCanzoni(u);
 	}
+	public Canzone getCanzone(int id) {
+		return canzoneDAO.getCanzone(id);
+	}
 }
