@@ -35,10 +35,9 @@ public class RegistrazioneDAO {
            while (resultSet.next()) {
         	   int idRegistrazione = resultSet.getInt("id_registrazione");
                int idUtente = resultSet.getInt("id_utente");
-               String registrazione = resultSet.getString("registrazione");
                String dataCreazione = resultSet.getString("data_creazione");
                int idCanzone = resultSet.getInt("id_canzone");
-               registrazioni.add(new Registrazione(idRegistrazione, registrazione, idUtente, idCanzone, dataCreazione));
+               registrazioni.add(new Registrazione(idRegistrazione, idUtente, idCanzone, dataCreazione));
            }
         }
         catch (SQLException e) {

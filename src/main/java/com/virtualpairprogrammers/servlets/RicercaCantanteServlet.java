@@ -19,7 +19,6 @@ public class RicercaCantanteServlet extends HttpServlet {
     {
     	ricercaCantanteService = new RicercaCantanteService();
     	List<Utente> cantanti = this.ricercaCantanteService.getAllCantanti(request.getParameter("username").toString());
-    	//List<Utente> cantanti = this.ricercaCantanteService.getAllCantanti("mario");
         request.setAttribute("all_cantanti", cantanti);
         getServletContext().getRequestDispatcher("/ShowCantanti.jsp").forward(request,response);
     

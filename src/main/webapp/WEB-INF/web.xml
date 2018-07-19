@@ -12,6 +12,12 @@
 	</servlet>
 
 	<servlet>
+		<servlet-name>VotaServlet</servlet-name>
+		<servlet-class>com.virtualpairprogrammers.servlets.VotaServlet</servlet-class>
+	</servlet>
+	
+
+	<servlet>
 		<servlet-name>RegisterServlet</servlet-name>
 		<servlet-class>com.virtualpairprogrammers.servlets.RegisterServlet</servlet-class>
 	</servlet>
@@ -30,18 +36,26 @@
 		<servlet-name>TaraturaMicrofonoServlet</servlet-name>
 		<servlet-class>com.virtualpairprogrammers.servlets.TaraturaMicrofonoServlet</servlet-class>
 	</servlet>
+<servlet>
+		<servlet-name>GiudiceChoiceServlet</servlet-name>
+		<servlet-class>com.virtualpairprogrammers.servlets.GiudiceChoiceServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>AscoltoRegistrazioniServlet</servlet-name>
+		<servlet-class>com.virtualpairprogrammers.servlets.AscoltoRegistrazioniServlet</servlet-class>
+	</servlet>
 
 <servlet-mapping>
 		<servlet-name>LoginServlet</servlet-name>
 		<url-pattern>/LoginServlet</url-pattern>
 	</servlet-mapping>
 	
-
-	
 	<servlet-mapping>
 		<servlet-name>RicercaCantanteServlet</servlet-name>
 		<url-pattern>/RicercaCantanteServlet</url-pattern>
 	</servlet-mapping>
+
 	<servlet-mapping>
 		<servlet-name>RegisterServlet</servlet-name>
 		<url-pattern>/RegisterServlet</url-pattern>
@@ -56,6 +70,21 @@
 	<servlet-mapping>
 		<servlet-name>TaraturaMicrofonoServlet</servlet-name>
 		<url-pattern>/TaraturaMicrofonoServlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>GiudiceChoiceServlet</servlet-name>
+		<url-pattern>/GiudiceChoiceServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>VotaServlet</servlet-name>
+		<url-pattern>/VotaServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>AscoltoRegistrazioniServlet</servlet-name>
+		<url-pattern>/AscoltoRegistrazioniServlet</url-pattern>
 	</servlet-mapping>
 
 	<session-config>
