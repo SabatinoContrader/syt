@@ -17,7 +17,17 @@
 	
 	<p> Canzone scelta:<%=canzone.getTitolo()%></p>
 	
-	qui va inserito il player di youtube con la url della canzone scelta.
+	<table>
+	<td>
+	<iframe width="500" height="360" src=<%=canzone.getUrlcanzone()%>>
+	</iframe>
+	
+	</td>
+	
+	<td>
+	
+	</td>
+	</table>
 	
 	<input type = "button" onclick = "location.href='HomeCantante.jsp'" value = "Termina tutorial"/>
 
