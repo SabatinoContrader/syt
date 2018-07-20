@@ -10,7 +10,7 @@
 </head>
 <body>
 <h1>Seleziona il cantante</h1>
-	<form action = "GiudiceChoiceServlet" method= "post">
+	<form action = "CantanteChoiceServlet" method= "post">
 		<h2><select name="username">
 			<%
 				for (Utente utenti : cantanti) {
@@ -35,7 +35,7 @@
 	
 		<ul>
 		  <li><a href="RicercaCantante.jsp">Ripeti la ricerca</a></li>
-		  <li><a href="HomeGiudice.jsp">Torna alla home</a></li>
+		  <li><a href="HomeCantante.jsp">Torna alla home</a></li>
 		  <li><a href="logout.jsp">Logout</a></li>
 		</ul>
 
