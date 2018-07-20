@@ -48,7 +48,7 @@ tr:nth-child(even) {
 </table>
 
 	<ul>
-	  <li><a href="RicercaCantante.jsp">Ripeti la ricerca</a></li>
+	  <li><a href="RicercaCantanteDaCantante.jsp">Ripeti la ricerca</a></li>
 	  <li><a href="HomeCantante.jsp">Torna alla home</a></li>
 	  <li><a href="logout.jsp">Logout</a></li>
 	</ul>

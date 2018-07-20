@@ -60,9 +60,9 @@ tr:nth-child(even) {
 </form>
 <br>
   <p>
-  <a href="RicercaCantante.jsp"> Torna al menu' di ricerca</a>
+  <a href="RicercaCantanteDaCantante.jsp"> Torna al menu' di ricerca</a>
   <p>
-  <a href="HomeGiudice.jsp"> Torna al menu' principale</a>
+  <a href="HomeCantante.jsp"> Torna al menu' principale</a>
   
   </ol>  
  
