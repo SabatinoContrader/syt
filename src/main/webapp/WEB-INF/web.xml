@@ -11,7 +11,20 @@
 		<servlet-class>com.virtualpairprogrammers.servlets.LoginServlet</servlet-class>
 	</servlet>
 	
+	<servlet>
+		<servlet-name>RicercaCantanteDaCantanteServlet</servlet-name>
+		<servlet-class>com.virtualpairprogrammers.servlets.RicercaCantanteDaCantanteServlet</servlet-class>
+	</servlet>
 	
+	<servlet>
+	<servlet-name>CantanteChoiceServlet</servlet-name>
+		<servlet-class>com.virtualpairprogrammers.servlets.CantanteChoiceServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+	<servlet-name>VotaCantanteServlet</servlet-name>
+		<servlet-class>com.virtualpairprogrammers.servlets.VotaCantanteServlet</servlet-class>
+	</servlet>
 
 	<servlet>
 		<servlet-name>VotaServlet</servlet-name>
@@ -59,12 +72,26 @@
 		<url-pattern>/RicercaCantanteServlet</url-pattern>
 	</servlet-mapping>
 
+<servlet-mapping>
+		<servlet-name>RicercaCantanteDaCantanteServlet</servlet-name>
+		<url-pattern>/RicercaCantanteDaCantanteServlet</url-pattern>
+	</servlet-mapping>
+	
 	<servlet-mapping>
 		<servlet-name>RegisterServlet</servlet-name>
 		<url-pattern>/RegisterServlet</url-pattern>
 	</servlet-mapping>
+	
+		<servlet-mapping>
+		<servlet-name>VotaCantanteServlet</servlet-name>
+		<url-pattern>/VotaCantanteServlet</url-pattern>
+	</servlet-mapping>
 
-
+<servlet-mapping>
+		<servlet-name>CantanteChoiceServlet</servlet-name>
+		<url-pattern>/CantanteChoiceServlet</url-pattern>
+	</servlet-mapping>
+	
 	<servlet-mapping>
 		<servlet-name>CanzoneServlet</servlet-name>
 		<url-pattern>/CanzoneServlet</url-pattern>

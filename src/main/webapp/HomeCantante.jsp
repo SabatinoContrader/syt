@@ -11,7 +11,7 @@
 <h1>Benvenuto <%=utente.getNome()%></h1>
 <ul>
 <ol><a href="CanzoneServlet?scelta=tutorial">Vai al tutorial</a></ol>
-<ol><a href="CiaoServlet?scelta=tutorial">Vai al ciao</a></ol>
+<ol><a href="RicercaCantanteDaCantante.jsp">Ricerca un cantante</a></ol>
 </ul>
 
 </body>
