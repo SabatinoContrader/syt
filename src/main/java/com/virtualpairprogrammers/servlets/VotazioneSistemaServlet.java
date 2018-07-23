@@ -26,7 +26,7 @@ public class VotazioneSistemaServlet extends HttpServlet {
 		this.votazioneSistemaService = new VotazioneSistemaService();
 	
 	      Random random= new Random();
-	    DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+	    DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
 	 	Date date = new Date();
 		
 		int idRegistrazione = random.nextInt(5)+1;

@@ -12,7 +12,7 @@
 Seleziona:
 <ul>
   <li><a href="RicercaCantante.jsp">Ricerca cantante</a></li>
-  <li><a href="VisualizzaClassifica.jsp">Visualizza classifica</a></li>
+  <li><a href="ClassificaSistema.jsp">Visualizza classifica</a></li>
   <li><a href="logout.jsp">Logout</a></li>
 </ul> 
 </body>
