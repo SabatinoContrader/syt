@@ -14,11 +14,5 @@ import com.sytSpring.model.Utente;
 public interface UtenteRepository extends CrudRepository<Utente, Long>{ 
 	
 	Utente findByUsername(String username);
-	
-	Utente save(Utente utente);
-	
-	@Modifying
-    @Query("UPDATE Utente SET password=?1 WHERE username=?2")
-	void updateUtente(String newpassword, String username);
 
 }

@@ -45,20 +45,4 @@ public class LoginController {
             
         }
 	
-	@RequestMapping(value="/modificaPswControl", method = RequestMethod.POST)
-	public String modifyPswController (HttpServletRequest request, Model model) {
-		
-		String username = request.getParameter("username");
-		String newpassword = request.getParameter("newpassword");
-		
-		if(!loginService.pswmodify(username, newpassword)) {
-			model.addAttribute("result", "ko");
-			return "changePsw";	
-		}else {
-			model.addAttribute("result", "ok");
-			return "index";
-		}
-		
-	}
-	
 }
