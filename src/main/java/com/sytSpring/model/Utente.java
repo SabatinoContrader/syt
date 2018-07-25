@@ -29,7 +29,7 @@ public class Utente{
 	@Column
     private String email;
 	@Column (name = "data_nascita")
-    private Date dataNascita;
+    private String dataNascita;
 	@Column (name = "luogo_nascita")
     private String  luogoNascita;
 	@Column

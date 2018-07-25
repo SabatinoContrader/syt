@@ -18,6 +18,8 @@ import com.sytSpring.model.Utente;
 public interface UtenteRepository extends CrudRepository<Utente, Long> {
 
 	Utente findByUsername(String username);
+	Utente save(Utente utente);
+	boolean existsByUsername(String username);
 
 	//List<Utente> findAllByUsernameAndRuolo(String username, String ruolo);
 	@Modifying

@@ -35,11 +35,14 @@ tr:nth-child(even) {
   		  <th>ID Canzone</th>
   		  <th>ID Cantante</th>
   		</tr>
+  			<c:set var="count" value="0" scope="page" />
+  		
 			<c:forEach items="${classificaRegistrazioni}" var="registrazione">
     
 				
 				<tr>
-					<td></td>
+				<c:set var="count" value="${count + 1}" scope="page"/>
+					<td>${count}° posizione</td>
 					<td>${registrazione.idRegistrazione}</td>
 					<td>${registrazione.dataCreazione}</td>
 					<td>${registrazione.idCanzone.idCanzone}</td>
