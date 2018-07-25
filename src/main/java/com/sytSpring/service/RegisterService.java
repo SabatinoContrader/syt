@@ -4,31 +4,30 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
-import com.sytSpring.dao.RegisterRepository;
 import com.sytSpring.dao.UtenteRepository;
 import com.sytSpring.model.Utente;
 import com.sytSpring.model.Utente;
 
 @Service
 public class RegisterService {
-	private RegisterRepository registerRepository;
+	private UtenteRepository utenteRepository;
 	
 	
 	@Autowired
-	public RegisterService(RegisterRepository registerRepository) { 
-		this.registerRepository = registerRepository;
+	public RegisterService(UtenteRepository utenteRepository) { 
+		this.utenteRepository = utenteRepository;
 	}
 	public boolean insert(Utente utente) {
 		if (existsByUsername(utente.getUsername())) {
 			return false;
 		} else {
-			this.registerRepository.save(utente);
+			this.utenteRepository.save(utente);
 			return true;
 		}
 	}
 
 	public boolean existsByUsername(String username) {
-		return this.registerRepository.existsByUsername(username);
+		return this.utenteRepository.existsByUsername(username);
 	}
 
 	
