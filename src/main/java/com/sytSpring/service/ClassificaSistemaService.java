@@ -6,15 +6,15 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.sytSpring.dao.ClassificaSistemaRepository;
+import com.sytSpring.dao.RegistrazioneRepository;
 import com.sytSpring.model.Registrazione;
 
 @Service
 public class ClassificaSistemaService {
-	private ClassificaSistemaRepository csr;
+	private RegistrazioneRepository csr;
 
 	@Autowired
-	public ClassificaSistemaService(ClassificaSistemaRepository csr) {
+	public ClassificaSistemaService(RegistrazioneRepository csr) {
 		this.csr=csr;
 		
 	}

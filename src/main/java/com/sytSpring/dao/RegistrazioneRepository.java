@@ -13,7 +13,7 @@ import com.sytSpring.model.Registrazione;
 
 @Repository
 @Transactional
-public interface ClassificaSistemaRepository extends CrudRepository<Registrazione, Long>{
+public interface RegistrazioneRepository extends CrudRepository<Registrazione, Long>{
 	
 	
 	

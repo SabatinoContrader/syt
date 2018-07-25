@@ -29,13 +29,17 @@ tr:nth-child(even) {
 <h2>Classifica Sistema</h2>
 	 	<table>
 	 	<tr>
+	 	<th>Posizione</th>
   		  <th>ID Registrazione</th>
   		  <th>Data Creazione</th>
   		  <th>ID Canzone</th>
   		  <th>ID Cantante</th>
   		</tr>
 			<c:forEach items="${classificaRegistrazioni}" var="registrazione">
+    
+				
 				<tr>
+					<td></td>
 					<td>${registrazione.idRegistrazione}</td>
 					<td>${registrazione.dataCreazione}</td>
 					<td>${registrazione.idCanzone.idCanzone}</td>
