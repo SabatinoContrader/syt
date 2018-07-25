@@ -22,11 +22,11 @@ public class VotazioneGiudice {
 	@Id                                                    
 	@GeneratedValue(strategy = GenerationType.IDENTITY)    
 	@Column (name ="id_votazione_giudice")                                          
-	private int idvotazionegiudice;
+	private int idVotazionegiudice;
 	@Column (name = "id_registrazione")
-    private int idregistrazione;
+    private int idRegistrazione;
 	@Column (name = "id_giudice")
-    private int idgiudice;
+    private int idGiudice;
 	@Column
     private Double timbro;
 	@Column

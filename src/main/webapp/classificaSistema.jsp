@@ -38,8 +38,8 @@ tr:nth-child(even) {
 				<tr>
 					<td>${registrazione.idRegistrazione}</td>
 					<td>${registrazione.dataCreazione}</td>
-					<td>${registrazione.idCanzone.idcanzone}</td>
-					<td>${registrazione.idUtente.id_utente}</td>
+					<td>${registrazione.idCanzone.idCanzone}</td>
+					<td>${registrazione.idUtente.idUtente}</td>
 					
 				</tr>
 			</c:forEach>

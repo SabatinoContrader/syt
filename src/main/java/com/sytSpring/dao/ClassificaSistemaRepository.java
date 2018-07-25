@@ -19,7 +19,7 @@ public interface ClassificaSistemaRepository extends CrudRepository<Registrazion
 	
 	@Modifying
 	@Query("SELECT  r FROM Registrazione r , VotazioneSistema v \r\n" + 
-			"WHERE r.idRegistrazione=v.idregistrazione \r\n" + 
+			"WHERE r.idRegistrazione=v.idRegistrazione \r\n" + 
 			"AND data < '2018-07-25' \r\n" + 
 			"AND data > '2018-07-20' \r\n" + 
 			"ORDER BY fedelta DESC")
