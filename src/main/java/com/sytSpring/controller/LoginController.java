@@ -41,7 +41,7 @@ public class LoginController {
                 return "homeGiudice";
                 
             }
-            else return "index";
+            else return "indexerr";
             
         }
 	
