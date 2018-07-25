@@ -28,8 +28,10 @@ public class VotazioneCantante {
 	@Column (name = "id_cantante")
     private int idCantante;
 	@Column (name = "lo_scaricheresti")
-    private Double loScaricheresti;
+    private double loScaricheresti;
 	@Column
-    private Double orecchiabilita;
+    private double orecchiabilita;
+	@Column
+	private double media;
 	
 }

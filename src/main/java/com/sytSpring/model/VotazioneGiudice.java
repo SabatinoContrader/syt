@@ -28,12 +28,13 @@ public class VotazioneGiudice {
 	@Column (name = "id_giudice")
     private int idGiudice;
 	@Column
-    private Double timbro;
+    private double timbro;
 	@Column
-    private Double intonazione;
+    private double intonazione;
 	@Column
-    private Double tono;
+    private double tono;
 	@Column
-    private Double unicita;
-	
+    private double unicita;
+	@Column
+	private double media;
 }

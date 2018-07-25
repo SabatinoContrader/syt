@@ -22,7 +22,7 @@ public interface RegistrazioneRepository extends CrudRepository<Registrazione, L
 			"WHERE r.idRegistrazione=v.idRegistrazione \r\n" + 
 			"AND data < '2018-07-25' \r\n" + 
 			"AND data > '2018-07-20' \r\n" + 
-			"ORDER BY fedelta DESC")
+			"ORDER BY media DESC ")
 	 public List<Registrazione> selectTop10();
 
 }

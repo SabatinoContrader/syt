@@ -26,14 +26,16 @@ public class VotazioneSistema {
 	@Column (name = "id_registrazione")
     private int idRegistrazione;
 	@Column
-    private Double fedelta;
+    private double fedelta;
 	@Column
-    private Double intonazione;
+    private double intonazione;
 	@Column
-    private Double potenza;
+    private double potenza;
 	@Column
-    private Double estensione;
+    private double estensione;
 	@Column 
     private Date data;
+	@Column
+	private double media;
 	
 }
