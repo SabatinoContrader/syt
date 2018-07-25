@@ -5,32 +5,17 @@
 <title>Lista cantanti</title>
 </head>
 <body>
-	<form action="/search/SearchCantante" method="get">
-		<table>
-			<tr>
-				<th></th>
-				<th></th>
-				<th>USERNAME</th>
-			</tr>
+<form action="/giudiceController/ascolta" method="get">
+		
+		<h2><select name="username">
+		<c:forEach items="${listUtenti}" var="utente">	
+	
+				<option value=${utente.username}>${utente.username}</option>
+	</c:forEach>
+</select></h2>
 
-
-			<c:forEach items="${listUtenti}" var="utente">
-
-				<tr>
-					<td>${utente.username}</td>
-				</tr>
-			</c:forEach>
-	</table>
-</form>
-<form action="/giudiceController/votaAscolta" method="get">
-		<h3>
-			<input type="radio" name="scelta" value= "vota" checked> Vota
-			<input type="radio" name="scelta" value= "ascolta"> Ascolta le registrazioni
-			
-	  	</h3>
-	  	
 		<h4>
-			<button type = "submit">Vai</button>
+			<button type = "submit">Ascolta le registrazioni</button>
 		</h4>
 	</form>
 	

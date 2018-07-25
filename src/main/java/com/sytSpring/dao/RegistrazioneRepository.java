@@ -24,8 +24,13 @@ public interface RegistrazioneRepository extends CrudRepository<Registrazione, L
 			"AND data > '2018-07-20' \r\n" + 
 			"ORDER BY media DESC ")
 	 public List<Registrazione> selectTop10();
+	
+	@Modifying
+	@Query("SELECT r FROM Registrazione r , Utente u WHERE r.idUtente=u.idUtente AND u.username=?1")
+	List<Registrazione> searchRegistrazioni(String username);
 
 }
+	
 
 /*"SELECT  r FROM Registrazione r , VotazioneSistema v \r\n" + 
 			"WHERE r.idregistrazione=v.idregistrazione \r\n" + 

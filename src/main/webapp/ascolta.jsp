@@ -1,5 +1,4 @@
-<%@ page import="com.virtualpairprogrammers.model.Registrazione"%>
-<%@ page import="java.util.*"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <html>
 <head>
@@ -21,9 +20,6 @@ tr:nth-child(even) {
 }
 </style>
 <title>Lista registrazioni</title>
-<%
-	List<Registrazione> rec = (List<Registrazione>) request.getAttribute("all_registrazioni");
-%>
 </head>
 <body>
 <h1>Elenco registrazioni</h1>
@@ -34,24 +30,23 @@ tr:nth-child(even) {
     <th>Data Creazione</th>
     <th>ID Canzone</th>
   </tr>
-  		<%
-			for (Registrazione registrazioni : rec) {
-		%>
+  	<c:forEach items="${listRegistrazioni}" var="registrazione">
+
+
+			
   <tr>
-    <td><%=registrazioni.getIdRegistrazione()%></td>
-    <td><%=registrazioni.getDataCreazione()%></td>
-    <td><%=registrazioni.getIdCanzone()%></td>
+    <td>${registrazione.idRegistrazione}</td>
+    <td>${registrazione.dataCreazione}</td>
+    <td>${registrazione.idCanzone.idCanzone}</td>
   </tr>
-  		<%
-			}
-		%>
+</c:forEach>
 </table>
 
-	<ul>
+	<!--<ul>
 	  <li><a href="RicercaCantante.jsp">Ripeti la ricerca</a></li>
 	  <li><a href="HomeGiudice.jsp">Torna alla home</a></li>
 	  <li><a href="logout.jsp">Logout</a></li>
-	</ul>
+	</ul> -->
 	
 </body>
 </html>
