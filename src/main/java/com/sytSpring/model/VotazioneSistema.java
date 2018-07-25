@@ -22,9 +22,9 @@ public class VotazioneSistema {
 	@Id                                                    
 	@GeneratedValue(strategy = GenerationType.IDENTITY)    
 	@Column (name ="id_votazione_sistema")                                          
-	private int idvotazionesistema;
+	private int idVotazionesistema;
 	@Column (name = "id_registrazione")
-    private int idregistrazione;
+    private int idRegistrazione;
 	@Column
     private Double fedelta;
 	@Column

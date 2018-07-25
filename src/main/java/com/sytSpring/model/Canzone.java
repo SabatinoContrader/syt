@@ -23,13 +23,13 @@ public class Canzone {
 	@Id                                                    
 	@GeneratedValue(strategy = GenerationType.IDENTITY)    
 	@Column (name ="id_canzone")                                          
-	private int idcanzone;
+	private int idCanzone;
 	@Column 
     private int livello;
 	@Column 
     private String genere;
 	@Column (name = "url_canzone")
-    private String urlcanzone;
+    private String urlCanzone;
 	@Column 
     private String titolo;
 	@OneToMany	(mappedBy="idCanzone")
