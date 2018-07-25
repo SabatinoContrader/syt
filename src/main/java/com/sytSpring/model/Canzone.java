@@ -1,14 +1,14 @@
 package com.sytSpring.model;
 
-
-import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.OneToMany;
 import lombok.*;
 
 
@@ -23,14 +23,16 @@ public class Canzone {
 	@Id                                                    
 	@GeneratedValue(strategy = GenerationType.IDENTITY)    
 	@Column (name ="id_canzone")                                          
-	private int idcanzone;
+	private int idCanzone;
 	@Column 
     private int livello;
 	@Column 
     private String genere;
 	@Column (name = "url_canzone")
-    private String urlcanzone;
+    private String urlCanzone;
 	@Column 
     private String titolo;
+	@OneToMany	(mappedBy="idCanzone")
+	private List<Registrazione> reg=new ArrayList<>();
 
 }

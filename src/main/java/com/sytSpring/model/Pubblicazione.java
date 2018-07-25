@@ -25,13 +25,13 @@ public class Pubblicazione {
 	@Id                                                    
 	@GeneratedValue(strategy = GenerationType.IDENTITY)    
 	@Column (name ="id_pubblicazione")                                          
-	private int idpubblicazione;
+	private int idPubblicazione;
 	@Column
     private String pubblicazione;
 	
 	@ManyToOne
     @JoinColumn(name="id_utente")
-	private Utente idutente;
+	private Utente idUtente;
     	
 }
 

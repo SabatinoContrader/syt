@@ -22,13 +22,13 @@ public class VotazioneCantante {
 	@Id                                                    
 	@GeneratedValue(strategy = GenerationType.IDENTITY)    
 	@Column (name ="id_votazione_cantante")                                          
-	private int idvotazionecantante;
+	private int idVotazionecantante;
 	@Column (name = "id_registrazione")
-    private int idregistrazione;
+    private int idRegistrazione;
 	@Column (name = "id_cantante")
-    private int idcantante;
+    private int idCantante;
 	@Column (name = "lo_scaricheresti")
-    private Double loscaricheresti;
+    private Double loScaricheresti;
 	@Column
     private Double orecchiabilita;
 	
