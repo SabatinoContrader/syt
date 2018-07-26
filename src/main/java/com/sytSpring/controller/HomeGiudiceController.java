@@ -2,6 +2,7 @@ package com.sytSpring.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -47,7 +48,7 @@ public class HomeGiudiceController {
 		// System.out.println(username);
 		List<Utente> cantanti = new ArrayList<Utente>();
 		cantanti = searchService.searchCantante(username);
-		System.out.println(cantanti.size());
+		//System.out.println(cantanti.size());
 		model.addAttribute("listUtenti", cantanti);
 		return "showCantanti";
 
@@ -63,4 +64,5 @@ public class HomeGiudiceController {
 		return "ascolta";
 
 	}
+
 }

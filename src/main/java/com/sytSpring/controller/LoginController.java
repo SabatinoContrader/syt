@@ -20,31 +20,37 @@ import com.sytSpring.service.LoginService;
 @Controller
 @RequestMapping("/login")
 public class LoginController {
-	
-	private LoginService loginService;
-	
-	@Autowired
-	public LoginController (LoginService loginService) {
-        this.loginService = loginService;
-    }
 
-	@RequestMapping(value="/loginControl", method = RequestMethod.POST)
-    public String loginController (@RequestParam("username") String nomeUtente, @RequestParam("password") String password, HttpServletRequest request, Map<String, Object> model) {
-		
-		if (loginService.login(nomeUtente, password).equals("C")) {
-            	
-                HttpSession session = request.getSession(true);
-                session.setAttribute("utente", nomeUtente);
-                return "homeCantante";
-            }
-            else if (loginService.login(nomeUtente, password).equals("G")){
-            	HttpSession session = request.getSession(true);
-                session.setAttribute("utente", nomeUtente);
-                return "homeGiudice";
-                
-            }
-            else return "indexerr";
-            
-        }
-	
+	private LoginService loginService;
+
+	@Autowired
+	public LoginController(LoginService loginService) {
+		this.loginService = loginService;
+	}
+
+	@RequestMapping(value = "/loginControl", method = RequestMethod.POST)
+	public String loginController(@RequestParam("username") String nomeUtente,
+			@RequestParam("password") String password, HttpServletRequest request, Map<String, Object> model) {
+
+		if (loginService.login(nomeUtente, password) != null) {
+
+			if (loginService.login(nomeUtente, password).getRuolo().toString().compareTo("C") == 0) {
+				int idUtente = loginService.login(nomeUtente, password).getIdUtente();
+				HttpSession session = request.getSession(true);
+				session.setAttribute("utente", nomeUtente);
+				session.setAttribute("idUtente", idUtente);
+				return "homeCantante";
+			} else if (loginService.login(nomeUtente, password).getRuolo().toString().compareTo("G") == 0) {
+				int idUtente = loginService.login(nomeUtente, password).getIdUtente();
+				HttpSession session = request.getSession(true);
+				session.setAttribute("utente", nomeUtente);
+				session.setAttribute("idUtente", idUtente);
+				return "homeGiudice";
+
+			} else
+				return "indexerr";
+
+		} else
+			return "indexerr";
+	}
 }
