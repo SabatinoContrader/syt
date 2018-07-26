@@ -26,7 +26,7 @@ tr:nth-child(even) {
 </style>
 </head>
 <body>
-<h2>Classifica Sistema</h2>
+<h2>Classifica Giudici</h2>
 	 	<table>
 	 	<tr>
 	 	<th>Posizione</th>
@@ -37,7 +37,7 @@ tr:nth-child(even) {
   		</tr>
   			<c:set var="count" value="0" scope="page" />
   		
-			<c:forEach items="${classificaRegistrazioni}" var="registrazione">
+			<c:forEach items="${classificaRegistrazioniGiudice}" var="registrazione">
     
 				
 				<tr>
@@ -47,7 +47,7 @@ tr:nth-child(even) {
 					<td>${registrazione.dataCreazione}</td>
 					<td>${registrazione.idCanzone.idCanzone}</td>
 					<td>${registrazione.idUtente.idUtente}</td>
-					
+					<td><a href="/votaController/votaCantante?idRegistrazione=${registrazione.idRegistrazione}">vota</a></td>
 				</tr>
 			</c:forEach>
 		</table>

@@ -21,11 +21,18 @@ public interface RegistrazioneRepository extends CrudRepository<Registrazione, L
 	@Query("SELECT  r FROM Registrazione r , VotazioneSistema v \r\n" + 
 			"WHERE r.idRegistrazione=v.idRegistrazione \r\n" + 
 			"ORDER BY media DESC ")
-	 public List<Registrazione> selectTop10();
+	 public List<Registrazione> selectTop10Sistema();
 	
 	@Modifying
 	@Query("SELECT r FROM Registrazione r , Utente u WHERE r.idUtente=u.idUtente AND u.username=?1")
 	List<Registrazione> searchRegistrazioni(String username);
+
+	
+	@Modifying
+	@Query("SELECT  r FROM Registrazione r , VotazioneGiudice v \r\n" + 
+			"WHERE r.idRegistrazione=v.idRegistrazione \r\n" + 
+			"ORDER BY media DESC ")
+	public List<Registrazione> selectTop10Giudice();
 
 }
 	
