@@ -24,4 +24,5 @@ public class RegistrazioneService {
 		registrazioni = registrazioneRepository.searchRegistrazioni(username);
 		return registrazioni;
 	}
+	
 }

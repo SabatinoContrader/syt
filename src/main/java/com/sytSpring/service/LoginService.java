@@ -16,24 +16,17 @@ public class LoginService {
 		this.utenteRepository = utenteRepository;
 	}
 
-	public String login(String username, String password) {
+	public Utente login(String username, String password) {
 		Utente utente = utenteRepository.findByUsername(username);
 
-		String risultato = "";
-		if (utente == null) {
-			risultato = "false";
-			return risultato;
-		} else {
-			if (utente.getPassword().equals(password)) {
-				String ruolo = utente.getRuolo();
-				return ruolo;
-			}
+		if (utente.getPassword().equals(password)) {
+			return utente;
+		}
 
-			else {
-				risultato = "false";
-				return risultato;
-			}
+		else {
+			Utente error = new Utente();
+			error = null;
+			return error;
 		}
 	}
-
 }
