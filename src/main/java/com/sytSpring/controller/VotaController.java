@@ -20,18 +20,25 @@ import com.sytSpring.model.Registrazione;
 import com.sytSpring.model.VotazioneCantante;
 import com.sytSpring.service.LoginService;
 import com.sytSpring.model.VotazioneGiudice;
-import com.sytSpring.service.VotaService;
 import com.sytSpring.service.VotazioneCantanteService;
+
+import com.sytSpring.service.VotazioneGiudiceService;
+
 
 
 @Controller
 @RequestMapping("/votaController")
 public class VotaController {
-	private VotaService votaService;
+
 	private VotazioneCantanteService votaCantanteService;
 	//private VotaGiudiceService votaGiudiceService;
+
+	
+	private VotazioneGiudiceService votaService;
+
 	@Autowired
-	public VotaController (VotaService votaService, VotazioneCantanteService votaCantanteService) {
+	public VotaController (VotazioneGiudiceService votaService , VotazioneCantanteService votaCantanteService) {
+
         this.votaService = votaService;
         this.votaCantanteService=votaCantanteService;
     }
