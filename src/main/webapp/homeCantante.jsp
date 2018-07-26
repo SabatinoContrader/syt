@@ -10,7 +10,7 @@
 <h1>Benvenuto <%= request.getSession().getAttribute("utente")%></h1>
 <ul>
 <ol><a href="CanzoneServlet?scelta=tutorial">Vai al tutorial</a></ol>
-<ol><a href="RicercaCantanteDaCantante.jsp">Ricerca un cantante</a></ol>
+<ol><a href="/cantanteController">Ricerca un cantante</a></ol>
 </ul>
 
 </body>
