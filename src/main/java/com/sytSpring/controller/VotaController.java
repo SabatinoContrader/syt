@@ -13,16 +13,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.sytSpring.model.VotazioneGiudice;
-import com.sytSpring.service.VotaService;
+import com.sytSpring.service.VotazioneGiudiceService;
 
 @Controller
 @RequestMapping("/votaController")
 public class VotaController {
 	
-	private VotaService votaService;
+	private VotazioneGiudiceService votaService;
 
 	@Autowired
-	public VotaController (VotaService votaService) {
+	public VotaController (VotazioneGiudiceService votaService) {
         this.votaService = votaService;
     }
 	

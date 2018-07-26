@@ -9,12 +9,12 @@ import com.sytSpring.model.VotazioneGiudice;
 
 
 @Service
-public class VotaService {
+public class VotazioneGiudiceService {
 	private VotazioneGiudiceRepository votaRepository;
 	
 	
 	@Autowired
-	public VotaService(VotazioneGiudiceRepository votaRepository) { 
+	public VotazioneGiudiceService(VotazioneGiudiceRepository votaRepository) { 
 		this.votaRepository = votaRepository;
 	}
 	public boolean insertVoto(VotazioneGiudice votazioneGiudice) {
