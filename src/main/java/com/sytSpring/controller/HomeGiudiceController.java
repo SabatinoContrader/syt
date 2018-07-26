@@ -48,7 +48,7 @@ public class HomeGiudiceController {
 		// System.out.println(username);
 		List<Utente> cantanti = new ArrayList<Utente>();
 		cantanti = searchService.searchCantante(username);
-		System.out.println(cantanti.size());
+		//System.out.println(cantanti.size());
 		model.addAttribute("listUtenti", cantanti);
 		return "showCantanti";
 
@@ -64,4 +64,5 @@ public class HomeGiudiceController {
 		return "ascolta";
 
 	}
+
 }

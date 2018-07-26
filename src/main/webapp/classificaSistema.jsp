@@ -40,7 +40,7 @@ tr:nth-child(even) {
   			<c:set var="count" value="0" scope="page" />
   		
 			<c:forEach items="${classificaRegistrazioni}" var="registrazione">
-    		<form action="/giudiceController/vota" value="${registrazione.idRegistrazione}" method="get">
+    		
 				
 				<tr>
 				<c:set var="count" value="${count + 1}" scope="page"/>
@@ -49,8 +49,8 @@ tr:nth-child(even) {
 					<td>${registrazione.dataCreazione}</td>
 					<td>${registrazione.idCanzone.idCanzone}</td>
 					<td>${registrazione.idUtente.idUtente}</td>
-					<td><button type = "submit">Vota</button></td>
-					</form>
+					<td><a href="/votaController/vota?idRegistrazione=${registrazione.idRegistrazione}">Vota</a></td>
+					
 				</tr>
 				
 			</c:forEach>
