@@ -37,4 +37,6 @@ public class VotazioneGiudice {
     private double unicita;
 	@Column
 	private double media;
+	@Column(name = "votato_da_cantante")
+	private boolean votatoDaCantante;
 }

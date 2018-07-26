@@ -33,5 +33,7 @@ public class VotazioneCantante {
     private double orecchiabilita;
 	@Column
 	private double media;
+	@Column
+	private int voti;
 	
 }

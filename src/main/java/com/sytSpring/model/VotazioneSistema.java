@@ -37,5 +37,7 @@ public class VotazioneSistema {
     private Date data;
 	@Column
 	private double media;
+	@Column(name = "votato_da_giudice")
+	private boolean votatoDaGiudice;
 	
 }
