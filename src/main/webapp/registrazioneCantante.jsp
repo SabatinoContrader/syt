@@ -1,6 +1,10 @@
-<%@ page import="com.virtualpairprogrammers.model.Registrazione"%>
-<%@ page import="java.util.*"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@ page import="com.sytSpring.model.Registrazione" %>
+<%@ page import="com.sytSpring.model.Canzone" %>
+<%@ page import="com.sytSpring.model.Utente" %>
+<%@ page import="java.util.*" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <html>
 <head>
@@ -22,37 +26,15 @@ tr:nth-child(even) {
 }
 </style>
 
-<%
-	List<Registrazione> rec = (List<Registrazione>) request.getAttribute("all_registrazioni");
-%>
 
 <title>Vota registrazione</title>
 
 </head>
 <body>
-<table>
-  <tr>
-    <th>ID Registrazione</th>
-    <th>Data Creazione</th>
-    <th>ID Canzone</th>
-  </tr>
-  		<%
-			for (Registrazione registrazioni : rec) {
-		%>
-  <tr>
-    <td><%=registrazioni.getIdRegistrazione()%></td>
-    <td><%=registrazioni.getDataCreazione()%></td>
-    <td><%=registrazioni.getIdCanzone()%></td>
-  </tr>
-  		<%
-			}
-		%>
-</table>
-<form action = "VotaCantanteServlet" method= "post">
+
+<form action = "/votaController/inserisciVotazioneCantante" method= "post">
   
-  
-  <h1>Inserisci ID registrazione <input type = "text" id = "idReg" name ="idRegistrazione" ></h1>
-  <h1><center>ESPRIMI LA VALUTAZIONE PER PARAMETRI</center></h1>
+  <h1><center>ESPRIMI LA VALUTAZIONE PER PARAMETRI della registrazione con id <c:out value="${idRegistrazione}"></c:out></center></h1>
   <h1>Orecchiabilità: <input type = "number" id = "orecchiabilita" name ="orecchiabilita" ></h1>
   <h1>Lo scaricheresti?: <input type = "number" id = "download" name ="download" ></h1>
   
@@ -60,11 +42,10 @@ tr:nth-child(even) {
 </form>
 <br>
   <p>
-  <a href="RicercaCantanteDaCantante.jsp"> Torna al menu' di ricerca</a>
+  <a href="ricercaCantanteDaCantante.jsp"> Torna al menu' di ricerca</a>
   <p>
-  <a href="HomeCantante.jsp"> Torna al menu' principale</a>
-  
-  </ol>  
+  <a href="homeCantante.jsp"> Torna al menu' principale</a>
+
  
 </body>
 </html>

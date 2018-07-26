@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.sytSpring.model.Registrazione;
 import com.sytSpring.model.Utente;
+import com.sytSpring.service.ClassificaGiudiceService;
 import com.sytSpring.service.ClassificaSistemaService;
 import com.sytSpring.service.RegistrazioneService;
 import com.sytSpring.service.SearchService;
@@ -22,16 +23,18 @@ import com.sytSpring.service.SearchService;
 @Controller
 @RequestMapping("/cantanteController")
 public class HomeCantanteController {
-
+	private ClassificaGiudiceService cgs;
 
 	@Autowired
-	public HomeCantanteController() {
-	
+	public HomeCantanteController(ClassificaGiudiceService cgs) {
+		this.cgs=cgs;
 	}
 
 	@RequestMapping(value = "/getClassifica", method = RequestMethod.GET)
 	public String getClassifica(Model model) {
-		return null;
+		List<Registrazione> classificaGiudice = cgs.getClassificaGiudice();
+		model.addAttribute("classificaRegistrazioniGiudice", classificaGiudice);
+		return "classificaGiudice";
 	}
 
 }
