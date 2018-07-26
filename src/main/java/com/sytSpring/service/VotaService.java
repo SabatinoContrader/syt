@@ -21,4 +21,5 @@ public class VotaService {
 			this.votaRepository.save(votazioneGiudice);
 			return true;
 	}
+	
 }
