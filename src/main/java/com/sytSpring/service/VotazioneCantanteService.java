@@ -29,8 +29,8 @@ public class VotazioneCantanteService {
 		
 	}
 
-	public void updateVoti(int idRegistrazione) {
-		votaCantanteRepository.updateVoti(idRegistrazione);
+	public void updateVoti(int idRegistrazione, double orecchiabilita, double download, double media) {
+		votaCantanteRepository.updateVoti(idRegistrazione,orecchiabilita,download,media);
 		
 	}
 

@@ -19,8 +19,8 @@ public interface VotazioneCantanteRepository extends CrudRepository<VotazioneCan
 	VotazioneCantante save(VotazioneCantante vc);
 
 	@Modifying
-	@Query("UPDATE VotazioneCantante SET voti=voti+1 where idRegistrazione=?1")
-	void updateVoti(int idRegistrazione);
+	@Query("UPDATE VotazioneCantante SET voti=voti+1 ,orecchiabilita=((orecchiabilita+?2)/2) ,loScaricheresti=((loScaricheresti+?3)/2), media=((media+?4)/2) where idRegistrazione=?1")
+	void updateVoti(int idRegistrazione, double orecchiabilita, double loScaricheresti, double media);
 
 	
 }

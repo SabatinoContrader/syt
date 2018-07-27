@@ -94,14 +94,13 @@ public class VotaController {
 	@RequestMapping(value="/inserisciVotazioneCantante", method = RequestMethod.POST)
 	public String insertVotazione( HttpServletRequest request,@RequestParam("idReg") int idRegistrazione,@RequestParam("orecchiabilita") double orecchiabilita,@RequestParam("download") double download,Model model) {
 		HttpSession session=request.getSession(true);
-		
+		double media=(download+orecchiabilita)/2;
 		
 		int idCantante=Integer.parseInt(session.getAttribute("idUtente").toString());
 		//1. controllare,dato l'id della registrazione se è presente nella tabella VOTAZIONEGIUDICE e se ha il flag =0;
 		if(votaService.checkFlag(idRegistrazione).size()!=0) {
 			
 			//2.inserisci la votazione in votazione cantante con nvoti=1...
-			double media=(download+orecchiabilita)/2;
 			VotazioneCantante vc=new VotazioneCantante(0,idRegistrazione,idCantante,download,orecchiabilita,media,1);
 			votaCantanteService.inserisciVotazioneCantante(vc);
 					
@@ -109,7 +108,7 @@ public class VotaController {
 			votaService.updateFlag(idRegistrazione);
 		}
 		else {
-			votaCantanteService.updateVoti(idRegistrazione);
+			votaCantanteService.updateVoti(idRegistrazione,orecchiabilita,download,media);
 		}
 		
 		
