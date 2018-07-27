@@ -1,43 +1,29 @@
-<%@ page import="com.virtualpairprogrammers.model.Utente"%>
-<%@ page import="java.util.*"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <html>
 <head>
 <title>Lista cantanti</title>
-<%
-	List<Utente> cantanti = (List<Utente>) request.getAttribute("all_cantanti");
-%>
 </head>
 <body>
-<h1>Seleziona il cantante</h1>
-	<form action = "GiudiceChoiceServlet" method= "post">
+<form action="/giudiceController/ascolta" method="get">
+		
 		<h2><select name="username">
-			<%
-				for (Utente utenti : cantanti) {
-			%>
+		<c:forEach items="${listUtenti}" var="utente">	
 	
-				<option value=<%=utenti.getUsername()%>><%=utenti.getUsername()%></option>
-			<%
-				}
-			%>
-		</select></h2>
-	
-		<h3>
-			<input type="radio" name="operazione" value="vota" checked> Vota
-			<input type="radio" name="operazione" value="ascolta"> Ascolta le registrazioni
-			
-	  	</h3>
-	  	
+				<option value=${utente.username}>${utente.username}</option>
+	</c:forEach>
+</select></h2>
+
 		<h4>
-			<button type = "submit" value = "Choice" name = "pulsante">Vai</button>
+			<button type = "submit">Ascolta le registrazioni</button>
 		</h4>
 	</form>
 	
-		<ul>
+	<!-- <ul>
 		  <li><a href="RicercaCantante.jsp">Ripeti la ricerca</a></li>
 		  <li><a href="HomeGiudice.jsp">Torna alla home</a></li>
 		  <li><a href="logout.jsp">Logout</a></li>
-		</ul>
+		</ul> -->
 
 </body>
 </html>

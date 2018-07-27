@@ -24,16 +24,18 @@ public class Registrazione {
 	@Id                                                    
 	@GeneratedValue(strategy = GenerationType.IDENTITY)    
 	@Column (name ="id_registrazione")                                          
-	private int idregistrazione;
+	private int idRegistrazione;
 	@Column (name = "data_creazione")
-    private Date datacreazione;
+    private Date dataCreazione;
 	
 	@ManyToOne
     @JoinColumn(name="id_canzone")
-	private Canzone idcanzone;
+	private Canzone idCanzone;
     
 	@ManyToOne
     @JoinColumn(name="id_utente")
-	private Utente idutente;
+	private Utente idUtente;
+
+
     
 }

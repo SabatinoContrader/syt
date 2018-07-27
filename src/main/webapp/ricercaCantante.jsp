@@ -4,11 +4,11 @@
 </head>
 <body>
    <div>
-     <form action ="RicercaCantanteServlet" method= "post">
+     <form action ="/giudiceController/SearchCantante" method= "GET">
 	<h1>RICERCA CANTANTE</h1>
 	
 	<h2>Inserisci l'username del cantante: <input type = "text" id = "user" name ="username" ></h2>
-	<button type = "submit" value = "Ricerca" name = "username">Cerca</button><br>
+	<button type = "submit">Cerca</button><br>
     </form>
    </div>
 </body>

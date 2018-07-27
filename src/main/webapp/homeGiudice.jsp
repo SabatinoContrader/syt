@@ -10,9 +10,9 @@
 <h1>Benvenuto <%= request.getSession().getAttribute("utente")%></h1>
 Seleziona:
 <ul>
-  <li><a href="RicercaCantante.jsp">Ricerca cantante</a></li>
-  <li><a href="ClassificaSistema.jsp">Visualizza classifica</a></li>
-  <li><a href="logout.jsp">Logout</a></li>
+  <li><a href="/ricercaCantante.jsp">Ricerca cantante</a></li>
+  <li><a href="/giudiceController/getClassifica">Visualizza classifica</a></li>
+  <li><a href="/logout/out">Logout</a></li>
 </ul> 
 </body>
 </html>
