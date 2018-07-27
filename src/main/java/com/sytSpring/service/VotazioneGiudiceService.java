@@ -30,4 +30,9 @@ public class VotazioneGiudiceService {
 		this.votaSistemaRepository.save(votazioneSistema);
 		return true;
 	}
+	
+	public boolean updateSistema(int idRegistrazione) {
+		this.votaSistemaRepository.updateSistema(idRegistrazione);
+		return true;
+	}
 }

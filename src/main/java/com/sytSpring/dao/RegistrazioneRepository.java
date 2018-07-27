@@ -19,7 +19,7 @@ public interface RegistrazioneRepository extends CrudRepository<Registrazione, L
 	
 	@Modifying
 	@Query("SELECT  r FROM Registrazione r , VotazioneSistema v \r\n" + 
-			"WHERE r.idRegistrazione=v.idRegistrazione \r\n" + 
+			"WHERE r.idRegistrazione=v.idRegistrazione and v.votatoDaGiudice = false \r\n" + 
 			"ORDER BY media DESC ")
 	 public List<Registrazione> selectTop10Sistema();
 	

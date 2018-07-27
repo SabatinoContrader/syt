@@ -19,5 +19,9 @@ public interface VotazioneSistemaRepository extends CrudRepository<VotazioneSist
 
 	
 	VotazioneSistema save(VotazioneSistema votazioneSistema);
+	
+	@Modifying
+	@Query("UPDATE VotazioneSistema SET votatoDaGiudice = true where idRegistrazione = ?1")
+	void updateSistema(int idRegistrazione);
 
 }

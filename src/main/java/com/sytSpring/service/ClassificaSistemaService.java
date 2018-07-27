@@ -21,7 +21,7 @@ public class ClassificaSistemaService {
 	
 	public List<Registrazione> getClassificaSistema(){
 
-		List<Registrazione> classifica=new ArrayList<Registrazione>(csr.selectTop10Sistema().subList(0, 2));
+		List<Registrazione> classifica=new ArrayList<Registrazione>(csr.selectTop10Sistema().subList(0, 5));
 		
 		
 		return classifica;

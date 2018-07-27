@@ -69,6 +69,8 @@ public class VotaController {
         VotazioneGiudice votazioneGiudice=new VotazioneGiudice(0,idRegistrazione,idGiudice,timbro,intonazione,tono,unicita,media,false);
         if (votaService.insertVoto(votazioneGiudice))
         {
+        	
+        	votaService.updateSistema(idRegistrazione);
         	HttpSession sess = request.getSession(true);
             sess.setAttribute("idRegistrazione", "");
             return "vota";		
@@ -80,6 +82,7 @@ public class VotaController {
         	return "classificaSistema";
         }
 	}
+	
 	
 	@RequestMapping(value="/votaCantante", method = RequestMethod.GET)
 	public String getClassifica(Model model,@RequestParam("idRegistrazione") String idReg) {
