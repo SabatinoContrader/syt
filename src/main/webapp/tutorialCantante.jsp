@@ -19,7 +19,7 @@ List<Canzone> listcanz = (List<Canzone>) request.getAttribute("canzoni");
 	  <form action = "/homeCantante/canzonesceltaControl" method= "post">
 	<select name="canzonescelta">
 	 <c:forEach items="${canzoni}" var="canz">
-	  <option value="${canz.getIdcanzone()}">"${canz.getTitolo()}"</option>
+	  <option value="${canz.getIdCanzone()}">"${canz.getTitolo()}"</option>
    </c:forEach>
    </select>
      <button type = "submit" >Procedi</button>

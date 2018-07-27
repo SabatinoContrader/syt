@@ -20,7 +20,7 @@
 
 	<!-- qui va inserito il path per la taratura del microfono. -->
 		
- <button type = "submit" name="canzonescelta" value="${canz.getIdcanzone()}" >Procedi</button>
+ <button type = "submit" name="canzonescelta" value="${canz.getIdCanzone()}" >Procedi</button>
 </form>
 </div>
 </body>

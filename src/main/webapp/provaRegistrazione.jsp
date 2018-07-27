@@ -18,7 +18,7 @@
 	
 	<table>
 	<td>
-	<iframe width="500" height="360" src="${canz.getUrlcanzone()}">>
+	<iframe width="500" height="360" src="${canz.getUrlCanzone()}">>
 	</iframe>
 	
 	</td>

@@ -25,7 +25,7 @@ public class CanzoneService {
 	}
 	public Canzone canzscelta(int idcanz) {
 		Canzone canz = new Canzone();
-		canz =canzoneRepository.findByidcanzone(idcanz);
+		canz =canzoneRepository.findByidCanzone(idcanz);
 		return canz;
 	}
 

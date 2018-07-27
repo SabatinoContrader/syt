@@ -12,6 +12,6 @@ import com.sytSpring.model.Canzone;
 	@Transactional
 	public interface CanzoneRepository extends CrudRepository<Canzone, Long>{ 
 		List<Canzone> findAllByLivelloAndGenere(int livello, String genere);
-		Canzone findByidcanzone(int idcanzone);
+		Canzone findByidCanzone(int idcanzone);
 	}
 
