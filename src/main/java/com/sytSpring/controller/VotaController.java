@@ -1,7 +1,11 @@
 package com.sytSpring.controller;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -21,6 +25,7 @@ import com.sytSpring.model.VotazioneCantante;
 import com.sytSpring.service.LoginService;
 
 import com.sytSpring.model.VotazioneGiudice;
+import com.sytSpring.model.VotazioneSistema;
 import com.sytSpring.service.VotazioneGiudiceService;
 
 
@@ -29,6 +34,7 @@ import com.sytSpring.service.VotazioneGiudiceService;
 public class VotaController {
 	
 	private VotazioneGiudiceService votaService;
+	
 
 	@Autowired
 	public VotaController (VotazioneGiudiceService votaService) {
@@ -95,6 +101,29 @@ public class VotaController {
 		
 		
 		
+
+	}
+	
+	@RequestMapping(value = "/inserisciVotazioneSistema", method = RequestMethod.GET)
+	public String insertVotoSistema(HttpServletRequest request, Model model) {
+		
+		Random random= new Random();
+	    DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+	 	Date date = new Date();
+		
+		int idRegistrazione = random.nextInt(5)+1;
+	
+		double fedelta = random.nextDouble()+1;
+		
+		double intonazione = random.nextDouble()+1;
+		double potenza =random.nextDouble()+1;
+		double estensione = random.nextDouble()+1;
+		String data = dateFormat.format(date);
+		double media = (fedelta+intonazione+potenza+estensione)/4;
+        
+        VotazioneSistema votazioneSistema=new VotazioneSistema(0,idRegistrazione,fedelta,intonazione,potenza,estensione,data,media,false);
+        votaService.insertVotoSistema(votazioneSistema);    
+        return "votazioneSistema";		
 
 	}
 }

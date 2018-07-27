@@ -34,7 +34,7 @@ public class VotazioneSistema {
 	@Column
     private double estensione;
 	@Column 
-    private Date data;
+    private String data;
 	@Column
 	private double media;
 	@Column(name = "votato_da_giudice")

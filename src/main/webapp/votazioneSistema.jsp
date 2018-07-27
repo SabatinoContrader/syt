@@ -1,6 +1,7 @@
-<%@ page import="com.virtualpairprogrammers.model.VotazioneSistema"%>
-<%@ page import="java.util.*"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@ page import="com.sytSpring.model.VotazioneSistema" %>
+<%@ page import="java.util.*" %>
 
 <html>
 <head>
@@ -9,10 +10,5 @@
 
 </head>
 <body>
-<table>
-  
-  		
-</table>
-<form action = "VotazioneSistemaServlet" method= "post">
-  <button type = "submit" value = "Sistema" name = "pulsante"> OK </button>
+<a href="/votaController/inserisciVotazioneSistema">Vota</a>
 </body>

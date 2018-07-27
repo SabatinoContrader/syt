@@ -11,15 +11,13 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.jca.cci.connection.*;
 
-import com.sytSpring.model.VotazioneGiudice;
-
+import com.sytSpring.model.VotazioneSistema;
 
 @Repository
 @Transactional
-public interface VotazioneGiudiceRepository extends CrudRepository<VotazioneGiudice, Long> {
+public interface VotazioneSistemaRepository extends CrudRepository<VotazioneSistema, Long> {
 
 	
-	VotazioneGiudice save(VotazioneGiudice votazioneGiudice);
-
+	VotazioneSistema save(VotazioneSistema votazioneSistema);
 
 }
