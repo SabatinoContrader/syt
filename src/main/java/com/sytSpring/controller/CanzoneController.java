@@ -16,7 +16,7 @@ import com.sytSpring.model.Canzone;
 import com.sytSpring.service.CanzoneService;
 
 @Controller
-@RequestMapping("/homeCantante")
+@RequestMapping("/canzoneController")
 
 public class CanzoneController {
 	
