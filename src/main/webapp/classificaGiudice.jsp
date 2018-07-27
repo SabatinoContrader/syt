@@ -34,6 +34,7 @@ tr:nth-child(even) {
   		  <th>Data Creazione</th>
   		  <th>ID Canzone</th>
   		  <th>ID Cantante</th>
+  		  <th>Vota</th>
   		</tr>
   			<c:set var="count" value="0" scope="page" />
   		
@@ -47,7 +48,7 @@ tr:nth-child(even) {
 					<td>${registrazione.dataCreazione}</td>
 					<td>${registrazione.idCanzone.idCanzone}</td>
 					<td>${registrazione.idUtente.idUtente}</td>
-					<td><a href="/votaController/votaCantante?idRegistrazione=${registrazione.idRegistrazione}">vota</a></td>
+					<td><a href="/votaController/votaCantante?idRegistrazione=${registrazione.idRegistrazione}">Vota</a></td>
 				</tr>
 			</c:forEach>
 		</table>
