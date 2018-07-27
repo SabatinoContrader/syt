@@ -1,7 +1,11 @@
 package com.sytSpring.controller;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -16,12 +20,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
-import com.sytSpring.model.Registrazione;
 import com.sytSpring.model.VotazioneCantante;
-import com.sytSpring.service.LoginService;
 import com.sytSpring.model.VotazioneGiudice;
+import com.sytSpring.model.VotazioneSistema;
 import com.sytSpring.service.VotazioneCantanteService;
-
 import com.sytSpring.service.VotazioneGiudiceService;
 
 
@@ -34,6 +36,7 @@ public class VotaController {
 
 	
 	private VotazioneGiudiceService votaService;
+	
 
 	@Autowired
 	public VotaController (VotazioneGiudiceService votaService , VotazioneCantanteService votaCantanteService) {
@@ -65,6 +68,8 @@ public class VotaController {
         VotazioneGiudice votazioneGiudice=new VotazioneGiudice(0,idRegistrazione,idGiudice,timbro,intonazione,tono,unicita,media,false);
         if (votaService.insertVoto(votazioneGiudice))
         {
+        	
+        	votaService.updateSistema(idRegistrazione);
         	HttpSession sess = request.getSession(true);
             sess.setAttribute("idRegistrazione", "");
             return "vota";		
@@ -76,6 +81,7 @@ public class VotaController {
         	return "classificaSistema";
         }
 	}
+	
 	
 	@RequestMapping(value="/votaCantante", method = RequestMethod.GET)
 	public String getClassifica(Model model,@RequestParam("idRegistrazione") String idReg) {
@@ -111,6 +117,29 @@ public class VotaController {
 		return "vota";
 		
 		
+	}
+	
+	@RequestMapping(value = "/inserisciVotazioneSistema", method = RequestMethod.GET)
+	public String insertVotoSistema(HttpServletRequest request, Model model) {
+		
+		Random random= new Random();
+	    DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+	 	Date date = new Date();
+		
+		int idRegistrazione = random.nextInt(5)+1;
+	
+		double fedelta = random.nextDouble()+1;
+		
+		double intonazione = random.nextDouble()+1;
+		double potenza =random.nextDouble()+1;
+		double estensione = random.nextDouble()+1;
+		String data = dateFormat.format(date);
+		double media = (fedelta+intonazione+potenza+estensione)/4;
+        
+        VotazioneSistema votazioneSistema=new VotazioneSistema(0,idRegistrazione,fedelta,intonazione,potenza,estensione,data,media,false);
+        votaService.insertVotoSistema(votazioneSistema);    
+        return "votazioneSistema";		
+
 	}
 }
 

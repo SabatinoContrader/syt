@@ -7,20 +7,31 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
 import com.sytSpring.dao.VotazioneGiudiceRepository;
+import com.sytSpring.dao.VotazioneSistemaRepository;
 import com.sytSpring.model.VotazioneGiudice;
-
+import com.sytSpring.model.VotazioneSistema;
 
 @Service
 public class VotazioneGiudiceService {
 	private VotazioneGiudiceRepository votaRepository;
-	
+	private VotazioneSistemaRepository votaSistemaRepository;
+
+
 	@Autowired
-	public VotazioneGiudiceService(VotazioneGiudiceRepository votaRepository) { 
+	public VotazioneGiudiceService(VotazioneGiudiceRepository votaRepository,
+			VotazioneSistemaRepository votaSistemaRepository) {
 		this.votaRepository = votaRepository;
+		this.votaSistemaRepository = votaSistemaRepository;
 	}
+
 	public boolean insertVoto(VotazioneGiudice votazioneGiudice) {
-			this.votaRepository.save(votazioneGiudice);
-			return true;
+		this.votaRepository.save(votazioneGiudice);
+		return true;
+	}
+
+	public boolean insertVotoSistema(VotazioneSistema votazioneSistema) {
+		this.votaSistemaRepository.save(votazioneSistema);
+		return true;
 	}
 	
 	
@@ -33,4 +44,10 @@ public class VotazioneGiudiceService {
 		
 	}
 	
+
+	public boolean updateSistema(int idRegistrazione) {
+		this.votaSistemaRepository.updateSistema(idRegistrazione);
+		return true;
+	}
+
 }

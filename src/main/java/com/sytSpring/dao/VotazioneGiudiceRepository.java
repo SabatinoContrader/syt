@@ -13,6 +13,7 @@ import org.springframework.jca.cci.connection.*;
 
 import com.sytSpring.model.VotazioneGiudice;
 
+
 @Repository
 @Transactional
 public interface VotazioneGiudiceRepository extends CrudRepository<VotazioneGiudice, Long> {
