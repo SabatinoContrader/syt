@@ -51,7 +51,7 @@ private RegisterService registerService;
         if (registerService.insert(u))
         {
         	
-        	return "index";		
+        	return "registerok";		
         }
         else
         {

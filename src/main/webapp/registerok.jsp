@@ -11,7 +11,7 @@
      <h3>Username: <input type = "text" id = "user" name ="username" placeholder = "inserisci username"></h3>
      <h3>Password: <input type = "password" id = "pass" name ="password" placeholder = "inserisci password"></h3>
      <button type = "submit">Login In</button><br>
-     <h4>Username o password errati!</h4>
+     <h4>Grazie per esserti registrato</h4>
      <a href="register.jsp"> Registrati </a>
      </form>
    </div>
