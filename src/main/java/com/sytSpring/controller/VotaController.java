@@ -31,7 +31,6 @@ import com.sytSpring.service.VotazioneGiudiceService;
 public class VotaController {
 
 	private VotazioneCantanteService votaCantanteService;
-	//private VotaGiudiceService votaGiudiceService;
 
 	
 	private VotazioneGiudiceService votaService;
@@ -87,30 +86,31 @@ public class VotaController {
 
 	}
 	@RequestMapping(value="/inserisciVotazioneCantante", method = RequestMethod.POST)
-	public String insertVotazione( HttpServletRequest request,@RequestParam("orecchiabilita") double orecchiabilita,@RequestParam("download") double download,Model model) {
-		int idRegistrazione=Integer.parseInt(request.getAttribute("idRegistrazione").toString());
+	public String insertVotazione( HttpServletRequest request,@RequestParam("idReg") int idRegistrazione,@RequestParam("orecchiabilita") double orecchiabilita,@RequestParam("download") double download,Model model) {
+		HttpSession session=request.getSession(true);
 		
 		
-		if(votaCantanteService.checkVoto(idRegistrazione)) {
-			//se la registrazione è presente nella tabella delle votazioni del giudice allora devo spostarla nella tabella dell'utente e modificare il flag a 1 e voto a 1;
-			int idCantante=Integer.parseInt(request.getAttribute("idCantante").toString());
-			double media=(orecchiabilita+download)/2;
-			VotazioneCantante nuovaVotazione=new VotazioneCantante(0,idRegistrazione,idCantante,download,orecchiabilita,media,1);
-			//votaCantanteService.insert(nuovaVotazione);
-			//votaGiudiceService.
+		int idCantante=Integer.parseInt(session.getAttribute("idUtente").toString());
+		//1. controllare,dato l'id della registrazione se è presente nella tabella VOTAZIONEGIUDICE e se ha il flag =0;
+		if(votaService.checkFlag(idRegistrazione).size()!=0) {
 			
-			return "vota";
+			//2.inserisci la votazione in votazione cantante con nvoti=1...
+			double media=(download+orecchiabilita)/2;
+			VotazioneCantante vc=new VotazioneCantante(0,idRegistrazione,idCantante,download,orecchiabilita,media,1);
+			votaCantanteService.inserisciVotazioneCantante(vc);
+					
+			//3...aggiorna il flag nella tabella votazionegiudice=1
+			votaService.updateFlag(idRegistrazione);
 		}
 		else {
-			int idCantante=Integer.parseInt(request.getAttribute("idCantante").toString());
-			double media=(orecchiabilita+download)/2;
-			VotazioneCantante nuovaVotazione=new VotazioneCantante(0,idRegistrazione,idCantante,download,orecchiabilita,media,1);
-			return "vota";
+			votaCantanteService.updateVoti(idRegistrazione);
 		}
 		
 		
 		
-
+		return "vota";
+		
+		
 	}
 }
 

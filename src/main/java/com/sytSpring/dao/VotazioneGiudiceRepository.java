@@ -19,5 +19,17 @@ public interface VotazioneGiudiceRepository extends CrudRepository<VotazioneGiud
 
 	
 	VotazioneGiudice save(VotazioneGiudice votazioneGiudice);
-	boolean findByIdRegistrazione(int idRegistrazione);
+	
+
+	
+	@Modifying
+	@Query("SELECT v FROM VotazioneGiudice v where v.idRegistrazione=?1 and v.votatoDaCantante=false")
+	List<VotazioneGiudice> checkFlag(int idRegistrazione);
+
+
+	@Modifying
+	@Query("UPDATE VotazioneGiudice SET votatoDaCantante=true where idRegistrazione=?1")
+	void update(int idRegistrazione);
+	
+	
 }

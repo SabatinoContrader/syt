@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
+import com.sytSpring.dao.UtenteRepository;
 import com.sytSpring.dao.VotazioneCantanteRepository;
 import com.sytSpring.dao.VotazioneGiudiceRepository;
 import com.sytSpring.model.VotazioneCantante;
@@ -16,11 +17,23 @@ public class VotazioneCantanteService {
 	private VotazioneCantanteRepository votaCantanteRepository;
 	private VotazioneGiudiceRepository votaGiudiceRepository;
 	
-	public boolean checkVoto(int idRegistrazione) {
-		return votaGiudiceRepository.findByIdRegistrazione(idRegistrazione);
+	@Autowired
+	public VotazioneCantanteService(VotazioneCantanteRepository votaCantanteRepository,VotazioneGiudiceRepository votaGiudiceRepository) {
+		this.votaCantanteRepository = votaCantanteRepository;
+		this.votaGiudiceRepository = votaGiudiceRepository;
+		
 	}
-	/*public boolean insert(VotazioneCantante vc) {
-		votacantanteRepository.
-		return false;
-	}*/
+
+	public void inserisciVotazioneCantante(VotazioneCantante vc) {
+		votaCantanteRepository.save(vc);
+		
+	}
+
+	public void updateVoti(int idRegistrazione) {
+		votaCantanteRepository.updateVoti(idRegistrazione);
+		
+	}
+
+	
+
 }

@@ -37,8 +37,8 @@ tr:nth-child(even) {
   <h1><center>ESPRIMI LA VALUTAZIONE PER PARAMETRI della registrazione con id <c:out value="${idRegistrazione}"></c:out></center></h1>
   <h1>Orecchiabilità: <input type = "number" id = "orecchiabilita" name ="orecchiabilita" ></h1>
   <h1>Lo scaricheresti?: <input type = "number" id = "download" name ="download" ></h1>
-  
-  <button type = "submit" value = "Registrazione" name = "pulsante"> OK </button>
+  <input type="hidden" value="${idRegistrazione}" name="idReg" />
+  <button type = "submit"> OK </button>
 </form>
 <br>
   <p>
