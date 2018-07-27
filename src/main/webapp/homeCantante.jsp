@@ -8,10 +8,11 @@
 <html>
 <body>
 <h1>Benvenuto <%= request.getSession().getAttribute("utente")%></h1>
+Seleziona:
 <ul>
-<ol><a href="CanzoneServlet?scelta=tutorial">Vai al tutorial</a></ol>
-<ol><a href="RicercaCantanteDaCantante.jsp">Ricerca un cantante</a></ol>
-</ul>
-
+  <li><a href="/homeCantante/canzoneControl">Vai al Tutorial</a></li>
+  <li><a href="ricercaCantanteDaCantante.jsp">Ricerca Cantante</a></li>
+  <li><a href="logout.jsp">Logout</a></li>
+</ul> 
 </body>
 </html>
