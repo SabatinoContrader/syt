@@ -20,6 +20,5 @@ public interface VotazioneGiudiceRepository extends CrudRepository<VotazioneGiud
 
 	
 	VotazioneGiudice save(VotazioneGiudice votazioneGiudice);
-
-
+	boolean findByIdRegistrazione(int idRegistrazione);
 }

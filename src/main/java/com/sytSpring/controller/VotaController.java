@@ -20,25 +20,30 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
-import com.sytSpring.model.Registrazione;
 import com.sytSpring.model.VotazioneCantante;
-import com.sytSpring.service.LoginService;
-
 import com.sytSpring.model.VotazioneGiudice;
 import com.sytSpring.model.VotazioneSistema;
+import com.sytSpring.service.VotazioneCantanteService;
 import com.sytSpring.service.VotazioneGiudiceService;
+
 
 
 @Controller
 @RequestMapping("/votaController")
 public class VotaController {
+
+	private VotazioneCantanteService votaCantanteService;
+	//private VotaGiudiceService votaGiudiceService;
+
 	
 	private VotazioneGiudiceService votaService;
 	
 
 	@Autowired
-	public VotaController (VotazioneGiudiceService votaService) {
+	public VotaController (VotazioneGiudiceService votaService , VotazioneCantanteService votaCantanteService) {
+
         this.votaService = votaService;
+        this.votaCantanteService=votaCantanteService;
     }
 	
 	@RequestMapping(value = "/vota", method = RequestMethod.GET)
@@ -89,8 +94,15 @@ public class VotaController {
 		int idRegistrazione=Integer.parseInt(request.getAttribute("idRegistrazione").toString());
 		
 		
-		if(true) {
-			return "";
+		if(votaCantanteService.checkVoto(idRegistrazione)) {
+			//se la registrazione è presente nella tabella delle votazioni del giudice allora devo spostarla nella tabella dell'utente e modificare il flag a 1 e voto a 1;
+			int idCantante=Integer.parseInt(request.getAttribute("idCantante").toString());
+			double media=(orecchiabilita+download)/2;
+			VotazioneCantante nuovaVotazione=new VotazioneCantante(0,idRegistrazione,idCantante,download,orecchiabilita,media,1);
+			//votaCantanteService.insert(nuovaVotazione);
+			//votaGiudiceService.
+			
+			return "vota";
 		}
 		else {
 			int idCantante=Integer.parseInt(request.getAttribute("idCantante").toString());
