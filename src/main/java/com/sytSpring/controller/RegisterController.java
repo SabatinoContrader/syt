@@ -46,12 +46,11 @@ private RegisterService registerService;
         String genere = request.getParameter("genere").toString();
         
         
-      //  System.out.println(nome+" "+ cognome +"  "+dataNascita+ ""+luogoNascita+"  "+sesso+"  "+telefono+"  "+ username+ "  "+password+"  "+ruolo+"  "+genere);
         Utente u=new Utente(0,nome,cognome,email,dataNascita,luogoNascita,sesso,genere,1, telefono,ruolo,0,0, username,password,0,0);
         if (registerService.insert(u))
         {
         	
-        	return "index";		
+        	return "registerok";		
         }
         else
         {
@@ -59,77 +58,6 @@ private RegisterService registerService;
         	return "register";
         }
         
-        
-        /*
-        if (userService.insertUser(newUser))
-        {
-        	model.addAttribute("feedback", "success");
-        	return "index";		
-        }else
-        {
-        	model.addAttribute("feedback", "failed");
-        	return "index";
-        }
 	}
-         * 
-         * 
-         * 
-         * 
-         * 
-         * if (nome != null || cognome != null || email != null || dataNascita != null|| luogoNascita != null|| sesso != null|| telefono != null || username != null || password != null|| ruolo != null|| genere != null) {
-            if (registerService.insert(new Utente(cognome, dataNascita, email, genere, luogoNascita, nome, password, ruolo, sesso, telefono, username)) != null)
-                return "index";
-            else
-                return "register";
-        }
-        return "register";
-            
-        }*/
-	
-	
-	
-   /* public String RegisterController (@RequestParam("nome") String nome, @RequestParam("cognome") String cognome,@RequestParam("email") String email,@RequestParam("datanascita") String dataNascita,@RequestParam("luogonascita") String luogoNascita,@RequestParam("sesso") String sesso,@RequestParam("phonenumber") String telefono,@RequestParam("username") String username, @RequestParam("password") String password,@RequestParam("ruolo") String ruolo,@RequestParam("genere") String genere, HttpServletRequest request, Map<String, Object> model) {
-		
-		if (nome != null || cognome != null || email != null || dataNascita != null|| luogoNascita != null|| sesso != null|| telefono != null || username != null || password != null|| ruolo != null|| genere != null) {
-        if (registerService.insert(new Utente(cognome, dataNascita, email, genere, luogoNascita, nome, password, ruolo, sesso, telefono, username)) != null)
-            return "index";
-        else
-            return "register";
-    }
-    return "register";
-        
-    }*/
-        
-	
-}}
-/*
-
-
-
-	@RequestMapping(value = "/registered", method = RequestMethod.POST)
-	public String registered(HttpServletRequest request, Model model ) 
-	{
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
-		String name = request.getParameter("name");
-		String surname = request.getParameter("surname");
-		String birthdate = request.getParameter("birthdate");
-		String birthplace = request.getParameter("birthplace");
-		String address = request.getParameter("address");
-		boolean handicapped = Boolean.valueOf(request.getParameter("handicapped"));
-		String type = "driver";		
-		
-		User newUser = new User(username, password, type, name, surname, birthdate, birthplace, address, handicapped);
-
-        if (userService.insertUser(newUser))
-        {
-        	model.addAttribute("feedback", "success");
-        	return "index";		
-        }else
-        {
-        	model.addAttribute("feedback", "failed");
-        	return "index";
-        }
-	}
-}*/
+}
 

@@ -34,6 +34,12 @@ public interface RegistrazioneRepository extends CrudRepository<Registrazione, L
 			"ORDER BY media DESC ")
 	public List<Registrazione> selectTop10Giudice();
 
+	
+	@Modifying
+	@Query("SELECT  r FROM Registrazione r , VotazioneCantante v \r\n" + 
+			"WHERE r.idRegistrazione=v.idRegistrazione \r\n" + 
+			"ORDER BY media , voti  DESC ")
+	 public List<Registrazione> selectClassificaFinale();
 }
 	
 
