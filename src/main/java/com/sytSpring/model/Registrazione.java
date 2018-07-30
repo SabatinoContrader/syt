@@ -10,6 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import lombok.*;
+
+import java.sql.Blob;
 import java.sql.Date;
 
 
@@ -27,6 +29,9 @@ public class Registrazione {
 	private int idRegistrazione;
 	@Column (name = "data_creazione")
     private Date dataCreazione;
+	
+	@Column
+    private Blob file;
 	
 	@ManyToOne
     @JoinColumn(name="id_canzone")
