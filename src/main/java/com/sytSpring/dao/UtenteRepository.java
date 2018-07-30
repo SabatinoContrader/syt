@@ -26,4 +26,5 @@ public interface UtenteRepository extends CrudRepository<Utente, Long> {
 	@Query("select u from Utente u where u.username like ?1 and u.ruolo=?2")
 	List<Utente> searchCantanti(String username, String ruolo);
 	
+	
 }

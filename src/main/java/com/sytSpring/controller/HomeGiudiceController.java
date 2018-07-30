@@ -45,10 +45,8 @@ public class HomeGiudiceController {
 
 	@RequestMapping(value = "/SearchCantante", method = RequestMethod.GET)
 	public String searchCantante(@RequestParam("username") String username, Model model) {
-		// System.out.println(username);
 		List<Utente> cantanti = new ArrayList<Utente>();
 		cantanti = searchService.searchCantante(username);
-		//System.out.println(cantanti.size());
 		model.addAttribute("listUtenti", cantanti);
 		return "showCantanti";
 

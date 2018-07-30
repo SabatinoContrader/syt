@@ -20,10 +20,13 @@ public class SearchService {
 	}
 	
 	public List<Utente> searchCantante(String username) {
+		
 		List<Utente> cantanti = new ArrayList<Utente>();
 		String user = "%" + username + "%";
 		String ruolo = "C";
 		cantanti = utenteRepository.searchCantanti(user, ruolo);
+		//cantanti=utenteRepository.findAllByUsernameAndRuolo(user, ruolo);
+	
 		return cantanti;
 	}
 }

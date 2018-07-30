@@ -2,6 +2,7 @@ package com.sytSpring.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -23,18 +24,35 @@ import com.sytSpring.service.SearchService;
 @Controller
 @RequestMapping("/cantanteController")
 public class HomeCantanteController {
-	private ClassificaGiudiceService cgs;
+
+private SearchService searchService;
+private ClassificaGiudiceService css;
 
 	@Autowired
-	public HomeCantanteController(ClassificaGiudiceService cgs) {
-		this.cgs=cgs;
+	public HomeCantanteController(ClassificaGiudiceService css, SearchService searchService) {
+		this.css = css;
+		this.searchService = searchService;
 	}
 
 	@RequestMapping(value = "/getClassifica", method = RequestMethod.GET)
 	public String getClassifica(Model model) {
-		List<Registrazione> classificaGiudice = cgs.getClassificaGiudice();
+		List<Registrazione> classificaGiudice= new ArrayList<Registrazione>();
 		model.addAttribute("classificaRegistrazioniGiudice", classificaGiudice);
 		return "classificaGiudice";
 	}
+	
+	
+	@RequestMapping(value = "/SearchCantante", method = RequestMethod.GET)
+	public String searchCantante(@RequestParam("username") String username, Model model) {
+		List<Utente> cantanti = new ArrayList<Utente>();
+		cantanti = searchService.searchCantante(username);
+		model.addAttribute("listUtenti", cantanti);
+		return "showCantantiDaCantante";
 
-}
+	}
+	
+	
+	
+	
+	}
+
