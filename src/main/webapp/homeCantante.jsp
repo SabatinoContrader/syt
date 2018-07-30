@@ -12,7 +12,7 @@ Seleziona:
 <ul>
 
   <li><a href="/canzoneController/canzoneControl">Vai al Tutorial</a></li>
-  <li><a href="ricercaCantanteDaCantante.jsp">Ricerca Cantante</a></li>
+  <li><a href="/ricercaCantanteDaCantante.jsp">Ricerca Cantante</a></li>
   <li><a href="/cantanteController/getClassificaFinale">Visualizza classifica finale</a></li>
   <li><a href="logout.jsp">Logout</a></li>
 </ul> 

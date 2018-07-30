@@ -31,7 +31,7 @@ public class HomeCantanteController {
 	private ClassificaFinaleService cfs;
 
 	@Autowired
-	public HomeCantanteController(ClassificaGiudiceService cgs,ClassificaFinaleService cfs) {
+	public HomeCantanteController(ClassificaGiudiceService cgs,ClassificaFinaleService cfs, SearchService searchService) {
 		this.cgs=cgs;
 		this.cfs=cfs;
 		this.searchService = searchService; 
