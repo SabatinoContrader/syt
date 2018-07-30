@@ -8,7 +8,7 @@
 <title>Lista cantanti</title>
 </head>
 <body>
-<form action="/giudiceController/ascolta" method="get">
+<form action="/cantanteController/ascoltaDaCantante" method="get">
 		
 		<h2><select name="username">
 		<c:forEach items="${listUtenti}" var="utente">	

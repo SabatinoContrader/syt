@@ -29,12 +29,14 @@ public class HomeCantanteController {
 	private SearchService searchService;
 	private ClassificaGiudiceService cgs;
 	private ClassificaFinaleService cfs;
+	private RegistrazioneService registrazioneService;
 
 	@Autowired
-	public HomeCantanteController(ClassificaGiudiceService cgs,ClassificaFinaleService cfs, SearchService searchService) {
+	public HomeCantanteController(ClassificaGiudiceService cgs,ClassificaFinaleService cfs, SearchService searchService, RegistrazioneService registrazioneService) {
 		this.cgs=cgs;
 		this.cfs=cfs;
-		this.searchService = searchService; 
+		this.searchService = searchService;
+		this.registrazioneService = registrazioneService;
 	}
 
 
@@ -61,6 +63,18 @@ public class HomeCantanteController {
 		List<Registrazione> classificaFinale = cfs.getClassificaFinale();
 		model.addAttribute("classificaFinale", classificaFinale);
 		return "classificaFinale";
+	}
+	
+	@RequestMapping(value = "/ascoltaDaCantante", method = RequestMethod.GET)
+	public String sceltaController(@RequestParam("username") String username, Model model) {
+		//System.out.println(username);
+		List<Registrazione> registrazioni = new ArrayList<Registrazione>();
+		
+		registrazioni = registrazioneService.searchRegistrazioni(username);
+		//System.out.println(registrazioni.size());
+		model.addAttribute("listRegistrazioni", registrazioni);
+		return "ascolta";
+
 	}
 	
 	

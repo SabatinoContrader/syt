@@ -14,7 +14,7 @@
 	<h1>2. Taratura del microfono del tuo dispositivo.</h1>
 	<h2>Segui i passaggi per la taratura del tuo microfono.</h2>
 
-    <form action = "/homeCantante/provaregControl" method= "post">
+    <form action = "/canzoneController/provaregControl" method= "post">
 	
     <p> Canzone scelta:"${canz.getTitolo()}"</p>
 

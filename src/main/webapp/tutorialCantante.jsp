@@ -16,7 +16,7 @@ List<Canzone> listcanz = (List<Canzone>) request.getAttribute("canzoni");
 
 	<h1>1. Seleziona una canzone.</h1>
 	<h2>Seleziona una canzone tra quelle disponibili per il tuo livello.</h2>		
-	  <form action = "/homeCantante/canzonesceltaControl" method= "post">
+	  <form action = "/canzoneController/canzonesceltaControl" method= "post">
 	<select name="canzonescelta">
 	 <c:forEach items="${canzoni}" var="canz">
 	  <option value="${canz.getIdCanzone()}">"${canz.getTitolo()}"</option>
