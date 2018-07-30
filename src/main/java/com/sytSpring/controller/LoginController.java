@@ -36,15 +36,23 @@ public class LoginController {
 
 			if (loginService.login(nomeUtente, password).getRuolo().toString().compareTo("C") == 0) {
 				int idUtente = loginService.login(nomeUtente, password).getIdUtente();
+				int livello =  loginService.login(nomeUtente, password).getLivello();
+				String genere =  loginService.login(nomeUtente, password).getGenere().toString();
 				HttpSession session = request.getSession(true);
 				session.setAttribute("utente", nomeUtente);
 				session.setAttribute("idUtente", idUtente);
+				session.setAttribute("livello", livello);
+				session.setAttribute("genere", genere);
 				return "homeCantante";
 			} else if (loginService.login(nomeUtente, password).getRuolo().toString().compareTo("G") == 0) {
 				int idUtente = loginService.login(nomeUtente, password).getIdUtente();
+				int livello =  loginService.login(nomeUtente, password).getLivello();
+				String genere =  loginService.login(nomeUtente, password).getGenere().toString();
 				HttpSession session = request.getSession(true);
 				session.setAttribute("utente", nomeUtente);
 				session.setAttribute("idUtente", idUtente);
+				session.setAttribute("livello", livello);
+				session.setAttribute("genere", genere);
 				return "homeGiudice";
 
 			} else

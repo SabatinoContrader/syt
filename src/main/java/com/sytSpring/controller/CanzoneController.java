@@ -30,8 +30,10 @@ public class CanzoneController {
 	@RequestMapping(value="/canzoneControl",method = RequestMethod.GET)
 	public String listacanzoni ( HttpServletRequest request, Model model) {
 	 HttpSession session = request.getSession(true);
+	 int livello = Integer.parseInt(session.getAttribute("livello").toString());
+	 String genere = session.getAttribute("genere").toString();
 	List<Canzone> listCanzone = new ArrayList<Canzone>();
-		listCanzone = canzoneService.listaCanzoni(1,"Pop");
+		listCanzone = canzoneService.listaCanzoni(livello,genere);
 		model.addAttribute("canzoni", listCanzone);
         return "tutorialCantante";
         }
