@@ -43,6 +43,7 @@ public class HomeCantanteController {
 	@RequestMapping(value = "/getClassifica", method = RequestMethod.GET)
 	public String getClassifica(Model model) {
 		List<Registrazione> classificaGiudice= new ArrayList<Registrazione>();
+		classificaGiudice = cgs.getClassificaGiudice();
 		model.addAttribute("classificaRegistrazioniGiudice", classificaGiudice);
 		return "classificaGiudice";
 	}
