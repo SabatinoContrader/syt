@@ -17,12 +17,12 @@ public class RegisterService {
 	public RegisterService(UtenteRepository utenteRepository) { 
 		this.utenteRepository = utenteRepository;
 	}
-	public boolean insert(Utente utente) {
+	public Utente insert(Utente utente) {
 		if (existsByUsername(utente.getUsername())) {
-			return false;
+			return null;
 		} else {
-			this.utenteRepository.save(utente);
-			return true;
+			
+			return this.utenteRepository.save(utente);
 		}
 	}
 

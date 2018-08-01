@@ -39,21 +39,16 @@ private RegisterService registerService;
 		return "register";}
 	
 	@RequestMapping(value = "/registered", method = RequestMethod.POST)
-	public String reg(@RequestBody RegisterDTO registerDTO ) {
+	public RegisterDTO reg(@RequestBody RegisterDTO registerDTO ) {
 		
 		Utente nuovoUtente=registerConverter.convertToEntity(registerDTO);
-        
-		if (registerService.insert(nuovoUtente))
-        {
-        	
-        	return "Utente registrato correttamente";		
+        Utente inserito=registerService.insert(nuovoUtente);
+        RegisterDTO regDto=null;
+        if(inserito!=null) {
+        	regDto=registerConverter.convertToDTO(inserito);
         }
-        else
-        {
-        	
-        	return "Registrazione non avvenuta con successo";
-        }
-        
+		return  regDto;
+
 	}
 }
 
