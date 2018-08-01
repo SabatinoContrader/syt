@@ -27,5 +27,6 @@ public class UtenteConverter implements Converter<Utente , UtenteDTO> {
 	
 		return new UtenteDTO(utente.getIdUtente(),utente.getGenere(),utente.getLivello(),utente.getRuolo(),utente.getUsername(),utente.getPassword());
 	}
+	
 
 }

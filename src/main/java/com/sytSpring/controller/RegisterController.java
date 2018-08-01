@@ -6,23 +6,32 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
+import com.sytSpring.converter.RegisterConverter;
+import com.sytSpring.dto.RegisterDTO;
+import com.sytSpring.dto.UtenteDTO;
 import com.sytSpring.model.Utente;
 import com.sytSpring.service.RegisterService;
 
 
-
-@Controller
+@CrossOrigin(value = "*")
+@RestController
 @RequestMapping("/Register")
 public class RegisterController {
+private RegisterConverter registerConverter;
 private RegisterService registerService;
 	
 	@Autowired
-	public RegisterController (RegisterService registerService) {
-        this.registerService = registerService;
+	public RegisterController (RegisterConverter registerConverter,RegisterService registerService) {
+		 this.registerConverter = registerConverter;
+		this.registerService = registerService;
+       
     }
 
 	@RequestMapping(value="/registerControl", method = RequestMethod.GET)
@@ -30,32 +39,19 @@ private RegisterService registerService;
 		return "register";}
 	
 	@RequestMapping(value = "/registered", method = RequestMethod.POST)
-	public String reg(HttpServletRequest request, Model model ) {
+	public String reg(@RequestBody RegisterDTO registerDTO ) {
 		
-		
-		String nome = request.getParameter("nome").toString();
-        String cognome = request.getParameter("cognome").toString();
-        String email = request.getParameter("email").toString();
-        String dataNascita = request.getParameter("datanascita").toString();
-        String luogoNascita = request.getParameter("luogonascita").toString();
-        String sesso = request.getParameter("sesso").toString();
-        String telefono = request.getParameter("phonenumber").toString();
-        String username = request.getParameter("username").toString();
-        String password = request.getParameter("password").toString();
-        String ruolo = request.getParameter("ruolo").toString();
-        String genere = request.getParameter("genere").toString();
+		Utente nuovoUtente=registerConverter.convertToEntity(registerDTO);
         
-        
-        Utente u=new Utente(0,nome,cognome,email,dataNascita,luogoNascita,sesso,genere,1, telefono,ruolo,0,0, username,password,0,0);
-        if (registerService.insert(u))
+		if (registerService.insert(nuovoUtente))
         {
         	
-        	return "registerok";		
+        	return "Utente registrato correttamente";		
         }
         else
         {
         	
-        	return "register";
+        	return "Registrazione non avvenuta con successo";
         }
         
 	}
