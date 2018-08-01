@@ -1,3 +1,55 @@
-<p>
-  register works!
-</p>
+<form>
+	<div class="input">
+		<label>Nome</label> <input type="text" name="nome"
+			[(ngModel)]=nome required>
+  </div>
+  <div class="input">
+		<label>Cognome</label> <input type="text" name="cognome"
+			[(ngModel)]=cognome required>
+  </div>
+  <div class="input">
+		<label>Email</label> <input type="text" name="email"
+			[(ngModel)]=email required>
+  </div>
+  <div class="input">
+		<label>Data di nascita</label> <input type="text" name="dataNascita" placeholder = "AAAA-MM-GG"
+			[(ngModel)]=dataNascita required>
+  </div>
+  <div class="input">
+		<label>Luogo di nascita</label> <input type="text" name="luogoNascita"
+			[(ngModel)]=luogoNascita required>
+  </div>
+  <label>Sesso</label>
+  <div class="input">
+		<label>M</label> <input type="radio" name="sesso" value="M"
+			[(ngModel)]=sesso required>
+  </div>
+  <div class="input">
+  <label>F</label> <input type="radio" name="sesso" value="F"
+			[(ngModel)]=sesso required>
+  </div>
+  <div class="input">
+    <label>Username</label> <input type="text" name="username"
+        [(ngModel)]=username required>
+    </div>
+	<div class="input">
+		<label>Password</label> <input type="password" name="password"
+			[(ngModel)]=password required>
+  </div>
+  <label>Ruolo</label>
+  <div class="input">
+		<label>Cantante</label> <input type="radio" name="ruolo" value="C"
+			[(ngModel)]=ruolo required>
+  </div>
+  <div class="input">
+  <label>Giudice</label> <input type="radio" name="ruolo" value="G"
+			[(ngModel)]=ruolo required>
+  </div>
+  <div class="input">
+    <label>Genere</label> <input type="text" name="genere"
+        [(ngModel)]=genere required>
+    </div>
+	<div class="input">
+		<input type="submit" (click)="register()" value="Registrati">
+	</div>
+</form>
