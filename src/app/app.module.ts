@@ -9,6 +9,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HomeCantanteComponent } from './components/home-cantante/home-cantante.component';
 import { HomeGiudiceComponent } from './components/home-giudice/home-giudice.component';
+import { RegisterService } from './services/register.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { HomeGiudiceComponent } from './components/home-giudice/home-giudice.com
     ReactiveFormsModule,
     AppRoutingModule
   ],
-  providers: [LoginService],
+  providers: [LoginService, RegisterService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

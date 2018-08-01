@@ -21,11 +21,20 @@ export class RegisterComponent implements OnInit {
   genere: string;
   register: Register;
 
-  constructor(private registerservice: RegisterService, private router: Router) { 
-    
-  }
+  constructor(private registerservice: RegisterService, private router: Router) {}
 
   ngOnInit() {
   }
 
+  registered(): void {
+    this.registerservice.register(this.nome, this.cognome, this.email, this.dataNascita, this.luogoNascita, this.sesso, this.username, this.password, this.ruolo, this.genere).subscribe((response) => {
+      if (response != null) {
+          this.router.navigateByUrl("/login");
+        }
+        else{
+          this.router.navigateByUrl("/register");
+        }      
+      }
+  )
+  }
 }
