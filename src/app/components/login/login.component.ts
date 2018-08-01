@@ -25,11 +25,17 @@ export class LoginComponent implements OnInit {
   login(): void {
     this.loginservice.login(this.username, this.password).subscribe((response) => {
       if (response != null) {
+
         this.utente = response;
         sessionStorage.setItem("utente", JSON.stringify(this.utente));
-        this.router.navigateByUrl("/home");
+        if (this.utente.ruolo.toString() === "C" ){
+          this.router.navigateByUrl("/homeCantante");
+        }
+        else{
+          this.router.navigateByUrl("/homeGiudice");
+        }      
       }
-    });
+    }
+  )
   }
-
 }
