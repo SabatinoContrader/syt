@@ -1,14 +1,20 @@
 <form>
-	<div class="input">
-		<label>Username</label> <input type="text" name="username"
+	<div class="form-group">
+		<label for="exampleInputEmail1">Username</label> 
+		<input type="text" name="username" class="form-control"
 			[(ngModel)]=username required>
 	</div>
-	<div class="input">
-		<label>Password</label> <input type="password" name="password"
+	<div class="form-group">
+		<label for="exampleInputPassword1">Password</label> 
+		<input type="password" name="password" class="form-control"
 			[(ngModel)]=password required>
 	</div>
+	<div class="form-group form-check">
+		<input type="checkbox" class="form-check-input" id="exampleCheck1">
+		<label class="form-check-label" for="exampleCheck1">Check me out</label>
+	  </div>
 	<div class="input">
-		<input type="submit" (click)="login()" value="Login">
+		<input type="submit" (click)="login()" value="Login"class="btn btn-warning">
 	</div>
 	<div class="input">
 		<a href="/#/register">Registrati</a>

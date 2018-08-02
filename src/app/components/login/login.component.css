@@ -5,10 +5,6 @@
 	align-items: center;
 }
 
-div.input {
-	position: relative;
-}
-
 div.input label {
 	position: absolute;
 	top: 0;
@@ -20,7 +16,6 @@ div.input label {
 
 div.input input {
 	padding: 10px 20px;
-	font-size: 25px;
 	outline: 0;
 }
 
