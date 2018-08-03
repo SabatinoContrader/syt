@@ -10,6 +10,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { HomeCantanteComponent } from './components/home-cantante/home-cantante.component';
 import { HomeGiudiceComponent } from './components/home-giudice/home-giudice.component';
 import { RegisterService } from './services/register.service';
+import { ContactComponent } from './components/contact/contact.component';
+
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { RegisterService } from './services/register.service';
     LoginComponent,
     RegisterComponent,
     HomeCantanteComponent,
-    HomeGiudiceComponent
+    HomeGiudiceComponent,
+    ContactComponent,
+  
   ],
   imports: [
     BrowserModule,
