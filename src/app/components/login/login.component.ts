@@ -18,8 +18,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     if (this.loginservice.isLogged()) {
-      
-      if(sessionStorage.getItem("ruolo") === "C"){
+      var utente = JSON.parse(sessionStorage.getItem("utente"));
+      if(utente.ruolo === "C"){
         this.router.navigate(['homeCantante']);
       }
       else {
@@ -36,7 +36,6 @@ export class LoginComponent implements OnInit {
         this.utente = response;
         sessionStorage.setItem("utente", JSON.stringify(this.utente));
         if (this.utente.ruolo.toString() === "C" ){
-          sessionStorage.setItem("ruolo", this.utente.ruolo.toString());
           this.router.navigateByUrl("/homeCantante");
         }
         else{
