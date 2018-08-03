@@ -1,55 +1,54 @@
 <form>
-	<div class="input">
-		<label>Nome</label> <input type="text" name="nome"
+	<div class="form-group">
+        <label for="exampleInputEmail1">Nome</label>
+        <input type="text" name="nome"class="form-control"
 			[(ngModel)]=nome required>
   </div>
-  <div class="input">
-		<label>Cognome</label> <input type="text" name="cognome"
+  <div class="form-group">
+		<label>Cognome</label> <input type="text" name="cognome"class="form-control"
 			[(ngModel)]=cognome required>
   </div>
-  <div class="input">
-		<label>Email</label> <input type="text" name="email"
+  <div class="form-group">
+		<label>Email</label> <input type="text" name="email"class="form-control"
 			[(ngModel)]=email required>
   </div>
-  <div class="input">
-		<label>Data di nascita</label> <input type="text" name="dataNascita" placeholder = "AAAA-MM-GG"
+  <div class="form-group">
+		<label>Data di nascita</label> <input type="text" name="dataNascita" placeholder = "AAAA-MM-GG"class="form-control"
 			[(ngModel)]=dataNascita required>
   </div>
-  <div class="input">
-		<label>Luogo di nascita</label> <input type="text" name="luogoNascita"
+  <div class="form-group">
+		<label>Luogo di nascita</label> <input type="text" name="luogoNascita"class="form-control"
 			[(ngModel)]=luogoNascita required>
   </div>
-  <label>Sesso</label>
-  <div class="input">
-		<label>M</label> <input type="radio" name="sesso" value="M"
-			[(ngModel)]=sesso required>
-  </div>
-  <div class="input">
-  <label>F</label> <input type="radio" name="sesso" value="F"
-			[(ngModel)]=sesso required>
-  </div>
-  <div class="input">
-    <label>Username</label> <input type="text" name="username"
+
+  <label>Sesso: </label>
+
+     <p>M <input type="radio" name="sesso" value="M"class="form-check"[(ngModel)]=sesso required>
+      F <input type="radio" name="sesso" value="F"class="form-check"[(ngModel)]=sesso></p>
+
+
+  <div class="form-group">
+    <label>Username</label> <input type="text" name="username"class="form-control"
         [(ngModel)]=username required>
     </div>
-	<div class="input">
-		<label>Password</label> <input type="password" name="password"
+	<div class="form-group">
+		<label>Password</label> <input type="password" name="password"class="form-control"
 			[(ngModel)]=password required>
   </div>
   <label>Ruolo</label>
-  <div class="input">
-		<label>Cantante</label> <input type="radio" name="ruolo" value="C"
+  <div class="form-group">
+		<label>Cantante</label> <input type="radio" name="ruolo" value="C"class="form-check"
 			[(ngModel)]=ruolo required>
   </div>
-  <div class="input">
-  <label>Giudice</label> <input type="radio" name="ruolo" value="G"
+  <div class="form-group">
+  <label>Giudice</label> <input type="radio" name="ruolo" value="G"class="form-check"
 			[(ngModel)]=ruolo required>
   </div>
-  <div class="input">
-    <label>Genere</label> <input type="text" name="genere"
+  <div class="form-group">
+    <label>Genere</label> <input type="text" name="genere"class="form-control"
         [(ngModel)]=genere required>
     </div>
-	<div class="input">
-		<input type="submit" (click)="registered()" value="Registrati">
-	</div>
+	<div class="form-group">
+        <input type="submit" (click)="registered()" value="Registrati"class="btn btn-primary">
+        	</div>
 </form>
