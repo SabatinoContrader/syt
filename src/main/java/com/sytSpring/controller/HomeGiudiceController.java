@@ -10,31 +10,40 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
+import com.sytSpring.converter.UtenteConverter;
+import com.sytSpring.dto.UtenteDTO;
 import com.sytSpring.model.Registrazione;
 import com.sytSpring.model.Utente;
+import com.sytSpring.GenericResponse;
 import com.sytSpring.service.ClassificaFinaleService;
 import com.sytSpring.service.ClassificaSistemaService;
 import com.sytSpring.service.RegistrazioneService;
 import com.sytSpring.service.SearchService;
 
-@Controller
+@CrossOrigin(value = "*")
+@RestController
 @RequestMapping("/giudiceController")
 public class HomeGiudiceController {
 	private SearchService searchService;
 	private ClassificaSistemaService css;
 	private RegistrazioneService registrazioneService;
 	private ClassificaFinaleService cfs;
+	private UtenteConverter utenteConverter;
 
 	@Autowired
-	public HomeGiudiceController(ClassificaSistemaService css, SearchService searchService, RegistrazioneService registrazioneService, ClassificaFinaleService cfs) {
+	public HomeGiudiceController(ClassificaSistemaService css, SearchService searchService, RegistrazioneService registrazioneService, ClassificaFinaleService cfs, UtenteConverter utenteConverter) {
 		this.css = css;
 		this.searchService = searchService;
 		this.registrazioneService = registrazioneService;
 		this.cfs=cfs;
+		this.utenteConverter = utenteConverter;
 	}
 
 	@RequestMapping(value = "/getClassifica", method = RequestMethod.GET)
@@ -46,13 +55,17 @@ public class HomeGiudiceController {
 
 	}
 
-	@RequestMapping(value = "/SearchCantante", method = RequestMethod.GET)
-	public String searchCantante(@RequestParam("username") String username, Model model) {
+	@RequestMapping(value = "/SearchCantante", method = RequestMethod.POST)
+	public GenericResponse<List<UtenteDTO>> searchCantante(@RequestBody UtenteDTO utenteDTO) {
+		Utente searchUtente = utenteConverter.convertToEntity(utenteDTO);
 		List<Utente> cantanti = new ArrayList<Utente>();
-		cantanti = searchService.searchCantante(username);
-		model.addAttribute("listUtenti", cantanti);
-		return "showCantanti";
-
+		List<UtenteDTO> cantantiDTO = new ArrayList<>();
+		cantanti = searchService.searchCantante(searchUtente.getUsername());
+		for (Utente cantante1 : cantanti) {
+			UtenteDTO cantante1DTO = utenteConverter.convertToDTO(cantante1);
+			cantantiDTO.add(cantante1DTO);
+		}
+		return new GenericResponse<>(1, cantantiDTO);
 	}
 
 	@RequestMapping(value = "/ascolta", method = RequestMethod.GET)

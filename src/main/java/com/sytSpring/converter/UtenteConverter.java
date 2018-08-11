@@ -1,5 +1,8 @@
 package com.sytSpring.converter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Component;
 
 import com.sytSpring.dto.UtenteDTO;
@@ -27,6 +30,5 @@ public class UtenteConverter implements Converter<Utente , UtenteDTO> {
 	
 		return new UtenteDTO(utente.getIdUtente(),utente.getGenere(),utente.getLivello(),utente.getRuolo(),utente.getUsername(),utente.getPassword());
 	}
-	
 
 }
