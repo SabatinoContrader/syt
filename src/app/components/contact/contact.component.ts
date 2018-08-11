@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import { Router } from '../../../../node_modules/@angular/router';
+import {LoginService} from '../../services/login.service';
 
 @Component({
   selector: 'app-contact',
@@ -7,9 +9,13 @@ import {Component, OnInit} from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 
-  constructor() { }
+  constructor(private loginservice: LoginService, private router: Router) { }
 
   ngOnInit() {
   }
 
+  logout() {
+    this.loginservice.logOut();
+    this.router.navigateByUrl("/login");
+   }  
 }
