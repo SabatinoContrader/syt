@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Utente } from '../../models/utente.model';
+import { SearchFromCantanteService } from '../../services/search-from-cantante.service';
+import { Router } from '../../../../node_modules/@angular/router';
 
 @Component({
   selector: 'app-home-giudice',
@@ -6,10 +9,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-giudice.component.css']
 })
 export class HomeGiudiceComponent implements OnInit {
+  username: string;
+  utente: Utente;
+  listaUtenti: Utente[];
 
-  constructor() { }
+  constructor(private searchservice: SearchFromCantanteService, private router: Router) { }
 
   ngOnInit() {
   }
 
+  search() {
+     this.searchservice.searchCantante(this.username).subscribe(response => {this.listaUtenti = response.data});
+    }
 }

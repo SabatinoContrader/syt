@@ -11,6 +11,7 @@ import { HomeCantanteComponent } from './components/home-cantante/home-cantante.
 import { HomeGiudiceComponent } from './components/home-giudice/home-giudice.component';
 import { RegisterService } from './services/register.service';
 import { ContactComponent } from './components/contact/contact.component';
+import { SearchFromCantanteService } from './services/search-from-cantante.service';
 
 
 @NgModule({
@@ -30,7 +31,7 @@ import { ContactComponent } from './components/contact/contact.component';
     ReactiveFormsModule,
     AppRoutingModule
   ],
-  providers: [LoginService, RegisterService],
+  providers: [LoginService, RegisterService, SearchFromCantanteService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

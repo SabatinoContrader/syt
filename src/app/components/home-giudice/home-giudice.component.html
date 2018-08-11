@@ -118,7 +118,25 @@
   <section>
     <nav>
       <ul>
-        <li><a href="#">Ricerca Cantante</a></li>
+
+          <label for="exampleInputEmail1">Ricerca un cantante</label>
+          <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Username" name="username" placeholder="Username"
+          [(ngModel)]=username required>
+          
+          <button class="btn btn-warning" type="submit" (click)="search()">Cerca</button>
+          
+
+        </form>
+
+        <tbody>
+          <tr *ngFor="let cantante of listaUtenti; let i = index">
+            <!-- <td><input type="checkbox" name="html" value={{cantante.username}}></td> -->
+            <td><b>{{i+1}}.</b> {{cantante.username}}</td>
+      </tr>
+    </tbody>
+            
+
         <li><a href="#">Visualizza Classifica</a></li>
     <li><a href="#">Visualizza Classifica finale</a></li>
       </ul>
