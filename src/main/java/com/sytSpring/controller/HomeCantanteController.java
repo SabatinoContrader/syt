@@ -10,10 +10,14 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
+import org.springframework.web.bind.annotation.RestController;
+import com.sytSpring.converter.UtenteConverter;
+import com.sytSpring.dto.UtenteDTO;
 import com.sytSpring.model.Registrazione;
 import com.sytSpring.model.Utente;
 import com.sytSpring.service.ClassificaFinaleService;
@@ -21,8 +25,10 @@ import com.sytSpring.service.ClassificaGiudiceService;
 import com.sytSpring.service.ClassificaSistemaService;
 import com.sytSpring.service.RegistrazioneService;
 import com.sytSpring.service.SearchService;
+import com.sytSpring.GenericResponse;
 
-@Controller
+@CrossOrigin(value = "*")
+@RestController
 @RequestMapping("/cantanteController")
 public class HomeCantanteController {
 
@@ -30,13 +36,14 @@ public class HomeCantanteController {
 	private ClassificaGiudiceService cgs;
 	private ClassificaFinaleService cfs;
 	private RegistrazioneService registrazioneService;
-
+	private UtenteConverter utenteConverter;
 	@Autowired
-	public HomeCantanteController(ClassificaGiudiceService cgs,ClassificaFinaleService cfs, SearchService searchService, RegistrazioneService registrazioneService) {
+	public HomeCantanteController(ClassificaGiudiceService cgs,ClassificaFinaleService cfs, SearchService searchService, RegistrazioneService registrazioneService,UtenteConverter utenteConverter) {
 		this.cgs=cgs;
 		this.cfs=cfs;
 		this.searchService = searchService;
 		this.registrazioneService = registrazioneService;
+		this.utenteConverter = utenteConverter;
 	}
 
 
@@ -49,13 +56,17 @@ public class HomeCantanteController {
 	}
 	
 	
-	@RequestMapping(value = "/SearchCantante", method = RequestMethod.GET)
-	public String searchCantante(@RequestParam("username") String username, Model model) {
+	@RequestMapping(value = "/SearchCantante", method = RequestMethod.POST)
+	public GenericResponse<List<UtenteDTO>> searchCantante(@RequestBody UtenteDTO utenteDTO) {
+		Utente searchUtente = utenteConverter.convertToEntity(utenteDTO);
 		List<Utente> cantanti = new ArrayList<Utente>();
-		cantanti = searchService.searchCantante(username);
-		model.addAttribute("listUtenti", cantanti);
-		return "showCantantiDaCantante";
-
+		List<UtenteDTO> cantantiDTO = new ArrayList<>();
+		cantanti = searchService.searchCantante(searchUtente.getUsername());
+		for (Utente cantante1 : cantanti) {
+			UtenteDTO cantante1DTO = utenteConverter.convertToDTO(cantante1);
+			cantantiDTO.add(cantante1DTO);
+		}
+		return new GenericResponse<>(1, cantantiDTO);
 	}
 	
 
