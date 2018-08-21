@@ -8,7 +8,7 @@ import {tap, catchError} from 'rxjs/operators';
 
 
 @Injectable()
-export class SearchFromCantanteService {
+export class SearchFromGiudiceService {
   private urlBase = enviroment.url;
 
   constructor(private http: HttpClient) {}
@@ -23,7 +23,7 @@ export class SearchFromCantanteService {
 
   searchCantante(username: string): Observable<any> {
     var utente = new Utente(0, " ", 0, " ", username, " ");
-    return this.http.post<Utente>('http://localhost:8080/cantanteController/SearchCantante', utente)
+    return this.http.post<Utente>('http://localhost:8080/giudiceController/SearchCantante', utente)
       .pipe(tap((response) => console.log("Utente"), catchError(this.handleError("login error", {})))
       );
   }

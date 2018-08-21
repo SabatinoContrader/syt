@@ -12,7 +12,7 @@ import { HomeGiudiceComponent } from './components/home-giudice/home-giudice.com
 import { RegisterService } from './services/register.service';
 import { ContactComponent } from './components/contact/contact.component';
 import { SearchFromCantanteService } from './services/search-from-cantante.service';
-
+import { SearchFromGiudiceService } from './services/search-from-giudice.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +31,7 @@ import { SearchFromCantanteService } from './services/search-from-cantante.servi
     ReactiveFormsModule,
     AppRoutingModule
   ],
-  providers: [LoginService, RegisterService, SearchFromCantanteService],
+  providers: [LoginService, RegisterService, SearchFromCantanteService, SearchFromGiudiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
