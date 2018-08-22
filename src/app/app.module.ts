@@ -13,6 +13,7 @@ import { RegisterService } from './services/register.service';
 import { ContactComponent } from './components/contact/contact.component';
 import { SearchFromCantanteService } from './services/search-from-cantante.service';
 import { SearchFromGiudiceService } from './services/search-from-giudice.service';
+import { ContactfromcantanteComponent } from './components/contactfromcantante/contactfromcantante.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { SearchFromGiudiceService } from './services/search-from-giudice.service
     HomeCantanteComponent,
     HomeGiudiceComponent,
     ContactComponent,
+    ContactfromcantanteComponent,
   
   ],
   imports: [
