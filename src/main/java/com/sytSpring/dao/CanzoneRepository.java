@@ -13,5 +13,6 @@ import com.sytSpring.model.Canzone;
 	public interface CanzoneRepository extends CrudRepository<Canzone, Long>{ 
 		List<Canzone> findAllByLivelloAndGenere(int livello, String genere);
 		Canzone findByidCanzone(int idcanzone);
+		
 	}
 

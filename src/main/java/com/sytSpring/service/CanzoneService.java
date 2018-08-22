@@ -28,5 +28,10 @@ public class CanzoneService {
 		canz =canzoneRepository.findByidCanzone(idcanz);
 		return canz;
 	}
+	public Canzone caricaById(int idCanzone) {
+
+		return canzoneRepository.findByidCanzone(idCanzone);		
+
+	}
 
 }

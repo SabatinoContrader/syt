@@ -18,7 +18,7 @@ import java.sql.Date;
 //@Data
 @NoArgsConstructor 
 @AllArgsConstructor
-@Getter @Setter
+@Getter  @Setter
 @Entity
 
 public class Registrazione {
@@ -27,6 +27,7 @@ public class Registrazione {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)    
 	@Column (name ="id_registrazione")                                          
 	private int idRegistrazione;
+	
 	@Column (name = "data_creazione")
     private Date dataCreazione;
 	
