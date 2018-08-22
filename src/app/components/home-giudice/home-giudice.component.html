@@ -132,8 +132,15 @@
         <tbody>
           <tr *ngFor="let cantante of listaUtenti; let i = index">
             <!-- <td><input type="checkbox" name="html" value={{cantante.username}}></td> -->
-            <td><b>{{i+1}}.</b> {{cantante.username}}</td>
+            <td><b>{{i+1}}.</b> {{cantante.username}} <input type="submit" (click)="listenRec([cantante.username])" value="Visualizza registrazioni"></td>
       </tr>
+
+      <tr *ngFor="let canzone of listaRec">
+          <td>{{canzone.idRegistrazione}} </td>
+          <td>{{canzone.dataCreazione}} </td>
+           <td>{{canzone.idCanzone}} </td>
+
+  </tr>
     </tbody>
             
 

@@ -14,6 +14,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { SearchFromCantanteService } from './services/search-from-cantante.service';
 import { SearchFromGiudiceService } from './services/search-from-giudice.service';
 import { ContactfromcantanteComponent } from './components/contactfromcantante/contactfromcantante.component';
+import { RegistrazioneService } from './services/registrazione.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { ContactfromcantanteComponent } from './components/contactfromcantante/c
     ReactiveFormsModule,
     AppRoutingModule
   ],
-  providers: [LoginService, RegisterService, SearchFromCantanteService, SearchFromGiudiceService],
+  providers: [LoginService, RegisterService, SearchFromCantanteService, SearchFromGiudiceService, RegistrazioneService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
