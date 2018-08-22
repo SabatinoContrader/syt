@@ -17,7 +17,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.sytSpring.converter.RegistrazioneConverter;
 import com.sytSpring.converter.UtenteConverter;
+import com.sytSpring.dto.RegistrazioneDTO;
 import com.sytSpring.dto.UtenteDTO;
 import com.sytSpring.model.Registrazione;
 import com.sytSpring.model.Utente;
@@ -36,14 +38,16 @@ public class HomeGiudiceController {
 	private RegistrazioneService registrazioneService;
 	private ClassificaFinaleService cfs;
 	private UtenteConverter utenteConverter;
+	private RegistrazioneConverter registrazioneConverter;
 
 	@Autowired
-	public HomeGiudiceController(ClassificaSistemaService css, SearchService searchService, RegistrazioneService registrazioneService, ClassificaFinaleService cfs, UtenteConverter utenteConverter) {
+	public HomeGiudiceController(ClassificaSistemaService css, SearchService searchService, RegistrazioneService registrazioneService, ClassificaFinaleService cfs, UtenteConverter utenteConverter, RegistrazioneConverter registrazioniConverter, RegistrazioneConverter registrazioneConverter) {
 		this.css = css;
 		this.searchService = searchService;
 		this.registrazioneService = registrazioneService;
 		this.cfs=cfs;
 		this.utenteConverter = utenteConverter;
+		this.registrazioneConverter = registrazioneConverter;
 	}
 
 	@RequestMapping(value = "/getClassifica", method = RequestMethod.GET)
@@ -72,8 +76,9 @@ public class HomeGiudiceController {
 	public GenericResponse<List<RegistrazioneDTO>> ascolta(@RequestParam("username") String username) {
 
 		List<Registrazione> registrazioni = new ArrayList<Registrazione>();
-		List<RegistrazioneDTO> registrazioneDTO = new ArrayList<>();
-		registrazioni = registrazioneService.getAllRegistrazioni();
+		List<RegistrazioneDTO> registrazioniDTO = new ArrayList<>();
+		registrazioni = registrazioneService.searchRegistrazioni(username);
+		
 		for (Registrazione registrazione : registrazioni) {
 			RegistrazioneDTO registrazioneDTO = registrazioneConverter.convertToDTO(registrazione);
 			registrazioniDTO.add(registrazioneDTO);
