@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Register } from '../../models/register.model';
-import { Router } from '../../../../node_modules/@angular/router';
+import { Router } from '@angular/router';
 import { RegisterService } from '../../services/register.service';
 
 @Component({

@@ -11,10 +11,9 @@ import { HomeCantanteComponent } from './components/home-cantante/home-cantante.
 import { HomeGiudiceComponent } from './components/home-giudice/home-giudice.component';
 import { RegisterService } from './services/register.service';
 import { ContactComponent } from './components/contact/contact.component';
-import { SearchFromCantanteService } from './services/search-from-cantante.service';
-import { SearchFromGiudiceService } from './services/search-from-giudice.service';
 import { ContactfromcantanteComponent } from './components/contactfromcantante/contactfromcantante.component';
-import { RegistrazioneService } from './services/registrazione.service';
+import { GiudiceService } from './services/giudice.service';
+import { CantanteService } from './services/cantante.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +33,7 @@ import { RegistrazioneService } from './services/registrazione.service';
     ReactiveFormsModule,
     AppRoutingModule
   ],
-  providers: [LoginService, RegisterService, SearchFromCantanteService, SearchFromGiudiceService, RegistrazioneService],
+  providers: [LoginService, RegisterService, GiudiceService, CantanteService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

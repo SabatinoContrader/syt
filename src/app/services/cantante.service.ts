@@ -6,9 +6,8 @@ import {Injectable} from '@angular/core';
 import {Observable, of} from 'rxjs';
 import {tap, catchError} from 'rxjs/operators';
 
-
 @Injectable()
-export class SearchFromGiudiceService {
+export class CantanteService {
   private urlBase = enviroment.url;
 
   constructor(private http: HttpClient) {}
@@ -23,9 +22,14 @@ export class SearchFromGiudiceService {
 
   searchCantante(username: string): Observable<any> {
     var utente = new Utente(0, " ", 0, " ", username, " ");
-    return this.http.post<Utente>('http://localhost:8080/giudiceController/SearchCantante', utente)
+    return this.http.post<Utente>('http://localhost:8080/cantanteController/SearchCantante', utente)
       .pipe(tap((response) => console.log("Utente"), catchError(this.handleError("login error", {})))
       );
   }
-}
 
+  listenRecDaCantante(username: string): Observable<any> {
+    return this.http.get<any>('http://localhost:8080/cantanteController/ascoltaDaCantante?username=' + username)
+    .pipe(tap((response) => console.log("deleteProduct"), catchError(this.handleError("delete error", {})))
+    );
+  }
+}

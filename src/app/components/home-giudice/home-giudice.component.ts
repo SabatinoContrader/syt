@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Utente } from '../../models/utente.model';
-import { SearchFromCantanteService } from '../../services/search-from-cantante.service';
 import { Router } from '../../../../node_modules/@angular/router';
 import {LoginService} from '../../services/login.service';
-import { RegistrazioneService } from '../../services/registrazione.service';
 import { Registrazione } from '../../models/registrazione.model';
+import { GiudiceService } from '../../services/giudice.service';
 
 @Component({
   selector: 'app-home-giudice',
@@ -17,13 +16,13 @@ export class HomeGiudiceComponent implements OnInit {
   listaUtenti: Utente[];
   listaRec: Registrazione[];
 
-  constructor(private searchservice: SearchFromCantanteService, private loginservice: LoginService, private registrazioneService: RegistrazioneService, private router: Router) { }
+  constructor(private giudiceservice: GiudiceService, private loginservice: LoginService, private router: Router) { }
 
   ngOnInit() {
   }
 
   search() {
-     this.searchservice.searchCantante(this.username).subscribe(response => {this.listaUtenti = response.data});
+     this.giudiceservice.searchCantante(this.username).subscribe(response => {this.listaUtenti = response.data});
     }
 
   logout() {
@@ -32,7 +31,7 @@ export class HomeGiudiceComponent implements OnInit {
     }  
 
     listenRec(username: string) {
-      this.registrazioneService.listenRec(username).subscribe(response => {
+      this.giudiceservice.listenRec(username).subscribe(response => {
         this.listaRec = response.data});
         //this.router.navigateByUrl("/prodotti");
       }

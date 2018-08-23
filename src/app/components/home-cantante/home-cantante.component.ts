@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Utente } from '../../models/utente.model';
-import { SearchFromCantanteService } from '../../services/search-from-cantante.service';
 import { Router } from '../../../../node_modules/@angular/router';
 import {LoginService} from '../../services/login.service';
-import { RegistrazioneService } from '../../services/registrazione.service';
 import { Registrazione } from '../../models/registrazione.model';
+import { CantanteService } from '../../services/cantante.service';
 
 @Component({
   selector: 'app-home-cantante',
@@ -17,12 +16,12 @@ export class HomeCantanteComponent implements OnInit {
   listaUtenti: Utente[];
   listaRecDaCantante: Registrazione[];
 
-  constructor(private searchservice: SearchFromCantanteService, private loginservice: LoginService,private registrazioneService: RegistrazioneService, private router: Router) { }
+  constructor(private cantanteservice: CantanteService, private loginservice: LoginService, private router: Router) { }
 
   ngOnInit() {
   }
   search() {
-    this.searchservice.searchCantante(this.username).subscribe(response => {this.listaUtenti = response.data});
+    this.cantanteservice.searchCantante(this.username).subscribe(response => {this.listaUtenti = response.data});
    }
 
  logout() {
@@ -30,7 +29,7 @@ export class HomeCantanteComponent implements OnInit {
     this.router.navigateByUrl("/login");
    }  
    listenRecDaCantante(username: string) {
-    this.registrazioneService.listenRecDaCantante(username).subscribe(response => {
+    this.cantanteservice.listenRecDaCantante(username).subscribe(response => {
       this.listaRecDaCantante = response.data});
       //this.router.navigateByUrl("/prodotti");
     }
