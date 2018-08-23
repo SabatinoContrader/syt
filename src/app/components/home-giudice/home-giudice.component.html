@@ -115,45 +115,69 @@
     <h2>SYT</h2>
   </header>
   
+  
   <section>
     <nav>
       <ul>
-
+        
           <label for="exampleInputEmail1">Ricerca un cantante</label>
+
           <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="text" placeholder="Username" name="username" placeholder="Username"
           [(ngModel)]=username required>
           
-          <button class="btn btn-warning" type="submit" (click)="search()">Cerca</button>
+
+        <button class="btn btn-warning" type="submit" (click)="search()">Cerca</button>
           
 
-        </form>
+      </form>
+    </ul>
+  </nav>
+</section>
 
-        <tbody>
-          <tr *ngFor="let cantante of listaUtenti; let i = index">
-            <!-- <td><input type="checkbox" name="html" value={{cantante.username}}></td> -->
-            <td><b>{{i+1}}.</b> {{cantante.username}} <input type="submit" (click)="listenRec([cantante.username])" value="Visualizza registrazioni"></td>
-      </tr>
+<section>
+    <nav>
+      <ul>
+        <div *ngIf="listaUtenti">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Username</th>
+                <th>Visualizza le registrazioni</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let cantante of listaUtenti">
+                <td>{{cantante.username}}</td>
+                <td><button class="btn btn-link btn-sm" type="submit" (click)="listenRec([cantante.username])">Visualizza</button></td>
+              </tr>
+            </tbody>
+          </table>
 
-      <tr *ngFor="let canzone of listaRec">
-          <td>{{canzone.idRegistrazione}} </td>
-          <td>{{canzone.dataCreazione}} </td>
-           <td>{{canzone.idCanzone}} </td>
-
-  </tr>
-    </tbody>
-            
-
-        <li><a href="#">Visualizza Classifica</a></li>
-    <li><a href="#">Visualizza Classifica finale</a></li>
+                <table class="table table-bordered">
+                  <thead>
+                    <tr *ngIf="listaRec">
+                      <th>ID Regitrazione</th>
+                      <th>Data Creazione</th>
+                      <th>ID Canzone</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let canzone of listaRec">
+                      <td>{{canzone.idRegistrazione}}</td>
+                      <td>{{canzone.dataCreazione}}</td>
+                      <td>{{canzone.idCanzone}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+        </div>
+      </ul>
+        <ul>
+          <li><a href="#">Visualizza Classifica</a></li>
+          <li><a href="#">Visualizza Classifica finale</a></li>
       </ul>
     </nav>
-    
-    
   </section>
-  
-
-
 </div>
 
 
