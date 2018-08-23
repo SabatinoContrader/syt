@@ -3,7 +3,8 @@ import { Utente } from '../../models/utente.model';
 import { SearchFromCantanteService } from '../../services/search-from-cantante.service';
 import { Router } from '../../../../node_modules/@angular/router';
 import {LoginService} from '../../services/login.service';
-
+import { RegistrazioneService } from '../../services/registrazione.service';
+import { Registrazione } from '../../models/registrazione.model';
 
 @Component({
   selector: 'app-home-cantante',
@@ -14,8 +15,9 @@ export class HomeCantanteComponent implements OnInit {
   username: string;
   utente: Utente;
   listaUtenti: Utente[];
+  listaRecfromCantante: Registrazione[];
 
-  constructor(private searchservice: SearchFromCantanteService, private loginservice: LoginService, private router: Router) { }
+  constructor(private searchservice: SearchFromCantanteService, private loginservice: LoginService,private registrazioneService: RegistrazioneService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -27,5 +29,11 @@ export class HomeCantanteComponent implements OnInit {
     this.loginservice.logOut();
     this.router.navigateByUrl("/login");
    }  
+   listenRecfromCantante(username: string) {
+    this.registrazioneService.listenRecfromCantante(username).subscribe(response => {
+      this.listaRecfromCantante = response.data});
+      //this.router.navigateByUrl("/prodotti");
+    }
+    
 }
 

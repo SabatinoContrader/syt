@@ -22,7 +22,10 @@ export class RegistrazioneService {
       return this.http.get<any>('http://localhost:8080/giudiceController/ascolta?username=' + username)
       .pipe(tap((response) => console.log("deleteProduct"), catchError(this.handleError("delete error", {})))
       );
-    
-
+    }
+      listenRecfromCantante(username: string): Observable<any> {
+        return this.http.get<any>('http://localhost:8080/cantanteController/ascoltaDaCantante?username=' + username)
+        .pipe(tap((response) => console.log("deleteProduct"), catchError(this.handleError("delete error", {})))
+        );
   }
 }
