@@ -115,22 +115,69 @@
           
           <button class="btn btn-warning" type="submit" (click)="search()">Cerca</button>
         </form>
+      </ul>
+    </nav>
+  </section>
+  <section>
+    <nav>
+      <ul>
+
+          <div *ngIf="listaUtenti">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Username</th>
+                    <th>Visualizza le registrazioni</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let cantante of listaUtenti">
+                    <td>{{cantante.username}}</td>
+                    <td><button class="btn btn-link btn-sm" type="submit" (click)="listenRecDaCantante([cantante.username])">Visualizza</button></td>
+                  </tr>
+                </tbody>
+              </table>
+    
+                    <table class="table table-bordered">
+                      <thead>
+                        <tr *ngIf="listaRecDaCantante">
+                          <th>ID Regitrazione</th>
+                          <th>Data Creazione</th>
+                          <th>ID Canzone</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let canzone of listaRecDaCantante">
+                          <td>{{canzone.idRegistrazione}}</td>
+                          <td>{{canzone.dataCreazione}}</td>
+                          <td>{{canzone.idCanzone}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+            </div>
+          </ul>
+            <ul>
+                <li><a href="#">Vai al Tutorial</a></li>
+                <li><a href="#">Visualizza Classifica</a></li>
+                <li><a href="#">Registra Canzone</a></li>
+<!--
         <tbody>
           <tr *ngFor="let cantante of listaUtenti; let i = index">
-            <!-- <td><input type="checkbox" name="html" value={{cantante.username}}></td> -->
-            <td><b>{{i+1}}.</b> {{cantante.username}} <input type="submit" (click)="listenRecfromCantante([cantante.username])" value="Visualizza registrazioni"></td>
+          
+            <td><b>{{i+1}}.</b> {{cantante.username}} <input type="submit" (click)="listenRecDaCantante([cantante.username])" value="Visualizza registrazioni"></td>
       </tr>
-      <tr *ngFor="let canzone of listaRecfromCantante">
-        <td>{{canzone.idRegistrazione}} </td>
-        <td>{{canzone.dataCreazione}} </td>
-         <td>{{canzone.idCanzone}} </td>
 
-</tr>
+      <tr *ngFor="let canzone of listaRecDaCantante">
+          <td>{{canzone.idRegistrazione}} </td>
+          <td>{{canzone.dataCreazione}} </td>
+           <td>{{canzone.idCanzone}} </td>
+
+  </tr>
     </tbody>
         <li><a href="#">Vai al Tutorial</a></li>
     <li><a href="#">Visualizza Classifica</a></li>
     <li><a href="#">Registra Canzone</a></li>
-      
+  -->
   </ul>
     </nav>
   </section>

@@ -15,7 +15,7 @@ export class HomeCantanteComponent implements OnInit {
   username: string;
   utente: Utente;
   listaUtenti: Utente[];
-  listaRecfromCantante: Registrazione[];
+  listaRecDaCantante: Registrazione[];
 
   constructor(private searchservice: SearchFromCantanteService, private loginservice: LoginService,private registrazioneService: RegistrazioneService, private router: Router) { }
 
@@ -29,11 +29,10 @@ export class HomeCantanteComponent implements OnInit {
     this.loginservice.logOut();
     this.router.navigateByUrl("/login");
    }  
-   listenRecfromCantante(username: string) {
-    this.registrazioneService.listenRecfromCantante(username).subscribe(response => {
-      this.listaRecfromCantante = response.data});
+   listenRecDaCantante(username: string) {
+    this.registrazioneService.listenRecDaCantante(username).subscribe(response => {
+      this.listaRecDaCantante = response.data});
       //this.router.navigateByUrl("/prodotti");
     }
-    
-}
+}  
 
