@@ -15,6 +15,7 @@ import com.sytSpring.service.UtenteService;
 
 		
 		private CanzoneService canzoneService;
+		private UtenteService utenteService;
 		@Override
 		public Registrazione convertToEntity(RegistrazioneDTO registrazioneDTO) {
 			
