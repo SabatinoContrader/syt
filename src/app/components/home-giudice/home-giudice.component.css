@@ -1,11 +1,11 @@
-#visClass{
+.visClass{
     padding: 0;
 }
 #nav1{
    
     padding-bottom: 0px;
 }
-#nav2{
+.nav2{
     padding-top: 0px;
 }
 #menu{
