@@ -32,4 +32,10 @@ export class CantanteService {
     .pipe(tap((response) => console.log("deleteProduct"), catchError(this.handleError("delete error", {})))
     );
   }
+
+  classificaFinale(): Observable<any> {
+    return this.http.get<any>('http://localhost:8080/cantanteController/getClassificaFinale')
+     .pipe(tap((response) => console.log("Prodotto"), catchError(this.handleError("login error", {})))
+      );
+  }
 }
