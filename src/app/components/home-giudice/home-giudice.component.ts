@@ -15,6 +15,7 @@ export class HomeGiudiceComponent implements OnInit {
   utente: Utente;
   listaUtenti: Utente[];
   listaRec: Registrazione[];
+  classificaRec: Registrazione[];
 
   constructor(private giudiceservice: GiudiceService, private loginservice: LoginService, private router: Router) { }
 
@@ -34,5 +35,8 @@ export class HomeGiudiceComponent implements OnInit {
       this.giudiceservice.listenRec(username).subscribe(response => {
         this.listaRec = response.data});
         //this.router.navigateByUrl("/prodotti");
+      }
+      getClassificaFinale() {
+        this.giudiceservice.classificaFinale().subscribe(response => {this.classificaRec = response.data});
       }
 }  
