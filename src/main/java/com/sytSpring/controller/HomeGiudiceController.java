@@ -51,12 +51,15 @@ public class HomeGiudiceController {
 	}
 
 	@RequestMapping(value = "/getClassifica", method = RequestMethod.GET)
-	public String getClassifica(Model model) {
-
-		List<Registrazione> classificaSistema = css.getClassificaSistema();
-		model.addAttribute("classificaRegistrazioni", classificaSistema);
-		return "classificaSistema";
-
+	public GenericResponse<List<RegistrazioneDTO>> ritornaRegistrazioniSistema() {
+		List<Registrazione> registrazioni = new ArrayList<Registrazione>();
+		List<RegistrazioneDTO> registrazioniDTO = new ArrayList<>();
+		registrazioni = css.getClassificaSistema();
+		for (Registrazione registrazione : registrazioni) {
+			RegistrazioneDTO registrazioneDTO = registrazioneConverter.convertToDTO(registrazione);
+			registrazioniDTO.add(registrazioneDTO);
+		}
+		return new GenericResponse<>(1, registrazioniDTO);
 	}
 
 	@RequestMapping(value = "/SearchCantante", method = RequestMethod.POST)
