@@ -174,7 +174,35 @@
         </div>
       </ul>
         <ul>
-          <li><a href="#">Visualizza Classifica</a></li>
+
+        <li><button class="btn btn-link" type="submit" (click)="getClassifica()">Visualizza classifica Sistema</button></li>
+          <section>
+            <nav>
+              <ul>
+                <div *ngIf="classificaRecSist">
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th>ID Regitrazione</th>
+                        <th>Data Creazione</th>
+                        <th>ID Canzone</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let registrazione of classificaRecSist">
+                        <td>{{registrazione.idRegistrazione}}</td>
+                        <td>{{registrazione.dataCreazione}}</td>
+                        <td>{{registrazione.idCanzone}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div *ngIf="classificaRecSist">
+                <p align="right"><li><a href="#">Chiudi</a></li></p></div>
+              </ul>
+            </nav>
+          </section>
+
           <li><button class="btn btn-link" type="submit" (click)="getClassificaFinale()">Visualizza classifica</button></li>
           <section>
             <nav>

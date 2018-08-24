@@ -16,6 +16,7 @@ export class HomeGiudiceComponent implements OnInit {
   listaUtenti: Utente[];
   listaRec: Registrazione[];
   classificaRec: Registrazione[];
+  classificaRecSist: Registrazione[];
 
   constructor(private giudiceservice: GiudiceService, private loginservice: LoginService, private router: Router) { }
 
@@ -38,5 +39,9 @@ export class HomeGiudiceComponent implements OnInit {
       }
       getClassificaFinale() {
         this.giudiceservice.classificaFinale().subscribe(response => {this.classificaRec = response.data});
+      }
+
+      getClassifica() {
+        this.giudiceservice.classificaSistema().subscribe(response => {this.classificaRecSist = response.data});
       }
 }  

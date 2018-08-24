@@ -2,7 +2,6 @@ import {enviroment} from '../models/enviroment.model';
 import {Utente} from '../models/utente.model';
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
-
 import {Observable, of} from 'rxjs';
 import {tap, catchError} from 'rxjs/operators';
 
@@ -34,6 +33,11 @@ export class GiudiceService {
   }
   classificaFinale(): Observable<any> {
     return this.http.get<any>('http://localhost:8080/giudiceController/getClassificaFinale')
+     .pipe(tap((response) => console.log("Prodotto"), catchError(this.handleError("login error", {})))
+      );
+  }
+  classificaSistema(): Observable<any> {
+    return this.http.get<any>('http://localhost:8080/giudiceController/getClassifica')
      .pipe(tap((response) => console.log("Prodotto"), catchError(this.handleError("login error", {})))
       );
   }
