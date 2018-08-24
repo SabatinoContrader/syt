@@ -32,4 +32,9 @@ export class GiudiceService {
     .pipe(tap((response) => console.log("deleteProduct"), catchError(this.handleError("delete error", {})))
     );
   }
+  classificaFinale(): Observable<any> {
+    return this.http.get<any>('http://localhost:8080/giudiceController/getClassificaFinale')
+     .pipe(tap((response) => console.log("Prodotto"), catchError(this.handleError("login error", {})))
+      );
+  }
 }

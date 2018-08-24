@@ -114,8 +114,8 @@
   <header>
     <h2>SYT</h2>
   </header>
-  
-  
+
+
   <section>
     <nav>
       <ul>
@@ -175,7 +175,35 @@
       </ul>
         <ul>
           <li><a href="#">Visualizza Classifica</a></li>
-          <li><a href="#">Visualizza Classifica finale</a></li>
+          <li><button class="btn btn-link" type="submit" (click)="getClassificaFinale()">Visualizza classifica</button></li>
+          <section>
+            <nav>
+              <ul>
+                <div *ngIf="classificaRec">
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th>ID Regitrazione</th>
+                        <th>Data Creazione</th>
+                        <th>ID Canzone</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let registrazione of classificaRec">
+                        <td>{{registrazione.idRegistrazione}}</td>
+                        <td>{{registrazione.dataCreazione}}</td>
+                        <td>{{registrazione.idCanzone}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div *ngIf="classificaRec">
+                <p align="right"><li><a href="#">Chiudi</a></li></p></div>
+              </ul>
+            </nav>
+          </section>
+
+
       </ul>
     </nav>
   </section>
