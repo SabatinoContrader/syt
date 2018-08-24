@@ -7,6 +7,7 @@ public class RegistrazioneDTO {
 	private int idRegistrazione;
 	private Date dataCreazione;
 	private int idCanzone;
+	private int idUtente;
 	
 	public RegistrazioneDTO() {
 
@@ -14,11 +15,24 @@ public class RegistrazioneDTO {
 	
 	
 
-	public RegistrazioneDTO(int idRegistrazione, Date dataCreazione, int idCanzone) {
+	public RegistrazioneDTO(int idRegistrazione, Date dataCreazione, int idCanzone, int idUtente) {
 		
 		this.idRegistrazione = idRegistrazione;
 		this.dataCreazione = dataCreazione;
 		this.idCanzone = idCanzone;
+		this.idUtente = idUtente;
+	}
+
+
+
+	public int getIdUtente() {
+		return idUtente;
+	}
+
+
+
+	public void setIdUtente(int idUtente) {
+		this.idUtente = idUtente;
 	}
 
 
