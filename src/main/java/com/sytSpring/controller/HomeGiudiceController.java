@@ -87,10 +87,15 @@ public class HomeGiudiceController {
 	}
 
 	@RequestMapping(value = "/getClassificaFinale", method = RequestMethod.GET)
-	public String getClassificaFinale(Model model) {
-		List<Registrazione> classificaFinale = cfs.getClassificaFinale();
-		model.addAttribute("classificaFinale", classificaFinale);
-		return "classificaFinale";
+	public GenericResponse<List<RegistrazioneDTO>> ritornaRegistrazioni() {
+		List<Registrazione> registrazioni = new ArrayList<Registrazione>();
+		List<RegistrazioneDTO> registrazioniDTO = new ArrayList<>();
+		registrazioni = cfs.getClassificaFinale();
+		for (Registrazione registrazione : registrazioni) {
+			RegistrazioneDTO registrazioneDTO = registrazioneConverter.convertToDTO(registrazione);
+			registrazioniDTO.add(registrazioneDTO);
+		}
+		return new GenericResponse<>(1, registrazioniDTO);
 	}
 
 }
